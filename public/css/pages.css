@@ -14,16 +14,50 @@
   right: 0;
 }
 
-.toggle-btn {
+.header-title {
+  float: left;
+  font-size: 1.6em;
+}
+
+.header-btn {
   float: right;
   margin-left: 10px;
   background-color: #6C6AA0;
   color: white !important;
 }
 
-.toggle-btn:hover {
+.header-btn:hover {
   background-color: #303151;
   color: white;
+}
+
+.clearfix:after {
+   content: ".";
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+.template-tabs {
+  margin-top: 20px;
+  margin-bottom: -30px;
+}
+
+.template-tabs ul li a {
+  color: #4b4b4d;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 28px;
+  padding: 0 16px;
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+.nav-tabs > li.active > a {
+  border-bottom: 3px solid #6865b4 !important;
+  cursor: default;
+  opacity: 1;
 }
 
 /* Body */
