@@ -18,7 +18,7 @@
           <div class="clearfix"></div>
           <!-- Navbar to select templates -->
           <nav class="template-tabs">
-            <ul class="nav nav-tabs" id="test">
+            <ul class="nav nav-tabs">
               <li class="active">
                 <a data-toggle="tab" href="#home-templates">Home</a>
               </li>
@@ -27,6 +27,12 @@
               </li>
               <li>
                 <a data-toggle="tab" href="#contact-templates">Contact</a>
+              </li>
+              <li>
+                <a data-toggle="tab" href="#header-templates">Header</a>
+              </li>
+              <li>
+                <a data-toggle="tab" href="#footer-templates">Footer</a>
               </li>
             </ul>
           </nav>
@@ -44,12 +50,11 @@
               <% include ../partials/home_form.ejs %>
             </div>
             <div id="about-templates" class="tab-pane fade">
-              <h3>Menu 1</h3>
-              <p>Some content in menu 1.</p>
+              <!-- About template form -->
+              <% include ../partials/about_form.ejs %>
             </div>
             <div id="contact-templates" class="tab-pane fade">
-              <h3>Menu 2</h3>
-              <p>Some content in menu 2.</p>
+              <% include ../partials/contact_form.ejs %>
             </div>
           </div>
         </div>
