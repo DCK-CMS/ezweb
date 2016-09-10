@@ -1,0 +1,7 @@
+/* THIS IS MAIN CSS FILE TO IMPORT ALL OTHER CSS FILES */
+@import "sidebar.css";
+@import "pages.css";
+
+body {
+  background-color: #F5F5FA;
+}

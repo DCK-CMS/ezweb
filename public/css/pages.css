@@ -1,0 +1,36 @@
+.page-container {
+  margin-right: 250px;
+}
+
+.page-container.toggled {
+  margin-right: 0px;
+}
+
+/* Header */
+.admin-header {
+  background-color: #fff;
+  padding: 30px 40px;
+  top: 0;
+  right: 0;
+}
+
+.toggle-btn {
+  float: right;
+  margin-left: 10px;
+  background-color: #6C6AA0;
+  color: white !important;
+}
+
+.toggle-btn:hover {
+  background-color: #303151;
+  color: white;
+}
+
+/* Body */
+.new-pages-container {
+  margin-top: 30px;
+}
+
+.new-pages-row {
+  background-color: #fff;
+}
