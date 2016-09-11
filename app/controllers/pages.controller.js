@@ -33,13 +33,11 @@ module.exports = {
 
       Page.find({}, function(err, pages){
         for(var i = 0; i < pages.length; i++){
-          console.log(pages[i].title);
           var pg = {
             title: pages[i].title,
             slug: pages[i].slug
           };
           pageArr.push(pg);
-          console.log(pageArr);
         }
         res.render('admin/user/templates/'+page.template+'_template',{pageData: page, arr: pageArr});
       });

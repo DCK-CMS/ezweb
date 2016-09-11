@@ -16,6 +16,9 @@ var pageSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Image'
   }],
-  imgUrl: String
+  imgUrl: String,
+  address: String,
+  contact_no: String,
+  header: String
 });
 module.exports = mongoose.model('Page',pageSchema);
