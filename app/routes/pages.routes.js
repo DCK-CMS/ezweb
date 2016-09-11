@@ -6,7 +6,10 @@ module.exports = function(app) {
     .get(pagesController.index);
 
   app.route('/admin/pages/new')
-    .get(pagesController.new);
+    .get(pagesController.new)
+    .post(pagesController.create);
+
+  app.get('/:slug', pagesController.getPage);
   // app.route('/commonquestions/new')
   //   .get(commonquestionsController.new);
   //

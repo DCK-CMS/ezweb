@@ -1,0 +1,7 @@
+<nav class="navbar navbar-default">
+  <ul class="nav nav-pills">
+    <% for(var i = 0; i < arr.length; i++){%>
+      <li><a href="<%= arr[i].slug%>"><%= arr[i].title%></a></li>
+    <%}%>
+  </ul>
+</nav>
