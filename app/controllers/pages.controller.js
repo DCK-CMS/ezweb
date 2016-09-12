@@ -1,4 +1,5 @@
 var Page = require('mongoose').model('Page');
+var Image = require('mongoose').model('Image');
 
 module.exports = {
   // Admin side logic
@@ -9,8 +10,10 @@ module.exports = {
   },
 
   new: function(req, res, next) {
-    res.render('admin/pages/new', {
-      title: "Select your template"
+    Image.find({}, function(err, images){
+      res.render('admin/pages/new', {
+        title: 'Select your template', imageArr: images
+      });
     });
   },
 

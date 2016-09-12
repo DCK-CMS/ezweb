@@ -11,3 +11,26 @@
   margin: 10px 5px 0 5px;
   vertical-align: top;
 }
+
+.uploaded-img {
+  height: 250px;
+  width: 250px;
+}
+
+.select-img {
+  height: 150px;
+  width: 150px;
+  border-radius: 10px;
+}
+
+/* Toggle selected image */
+.uploaded-img-grid .img-item.selected {
+}
+
+.selected-tick.selected {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  opacity: 0.6;
+  background-image: url('../images/tick-icon.jpg');
+}
