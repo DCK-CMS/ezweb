@@ -40,7 +40,12 @@
   <div class="form-group">
     <label for="imgUrl" class="col-sm-2 control-label">Img Url</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="imgUrl" placeholder="Urls for images" name="imgUrl">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn selector-btn" data-toggle="modal" data-target="#chooseImg-modal">
+        <i class="fa fa-plus fa-fw"></i> Choose image
+      </button>
+      <!-- Choose image Modal -->
+      <% include ../modals/chooseImg_modal.ejs %>
     </div>
   </div>
 

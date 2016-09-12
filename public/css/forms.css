@@ -8,3 +8,15 @@
   background-color: #3A3A5B;
   color: white;
 }
+
+.selector-btn {
+  border-radius: 20px;
+  padding: 5px 15px 5px 10px;
+  background-color: #5bc0de;
+  color: #fff;
+}
+
+.selector-btn:hover {
+  background-color: #31b0d5;
+  color: #fff;
+}
