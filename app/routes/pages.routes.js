@@ -9,7 +9,7 @@ module.exports = function(app) {
     .get(pagesController.new)
     .post(pagesController.create);
 
-  app.get('/:slug', pagesController.getPage);
+  app.get('/views/:slug', pagesController.getPage);
   // app.route('/commonquestions/new')
   //   .get(commonquestionsController.new);
   //
