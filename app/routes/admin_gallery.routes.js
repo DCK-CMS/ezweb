@@ -6,4 +6,11 @@ module.exports = function(app) {
     .get(galleryController.index)
     .post(galleryController.create);
 
+  // restful admin gallery routes
+  app.route('/admin/gallery/:id')
+    .get(galleryController.show)
+    .put(galleryController.update)
+    .delete(galleryController.delete);
+
+
 };

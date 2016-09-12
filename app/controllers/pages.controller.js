@@ -72,7 +72,6 @@ module.exports = {
   },
   //admin show
   show: function(req, res, next){
-    console.log(req.params.id);
     Page.findById(req.params.id, function(err, page){
       res.json(page);
     });
