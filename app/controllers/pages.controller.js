@@ -1,6 +1,7 @@
 var Page = require('mongoose').model('Page');
 
 module.exports = {
+  // Admin side logic
   index: function(req, res, next) {
     res.render('admin/pages/index', {
       title: "Pages"
@@ -25,6 +26,7 @@ module.exports = {
     });
   },
 
+  // Visitor side logic
   getPage: function(req, res, next){
     var pageArr = [];
 
@@ -35,7 +37,7 @@ module.exports = {
 
       Page.find({}, function(err, pages){
         if(err) return next(err);
-        
+
         for(var i = 0; i < pages.length; i++){
           var pg = {
             title: pages[i].title,
@@ -43,7 +45,8 @@ module.exports = {
           };
           pageArr.push(pg);
         }
-        res.render('admin/user/templates/'+page.template+'_template',{pageData: page, arr: pageArr});
+        res.render('templates/'+page.template+'_template', {
+          pageData: page, arr: pageArr});
       });
     });
   }
