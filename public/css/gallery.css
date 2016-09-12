@@ -1,0 +1,13 @@
+.uploaded-img-grid {
+  list-style: none;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.uploaded-img-grid > li {
+  display: inline-block;
+  margin: 10px 5px 0 5px;
+  vertical-align: top;
+}

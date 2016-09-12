@@ -2,6 +2,7 @@
 @import "sidebar.css";
 @import "pages.css";
 @import "forms.css";
+@import "gallery.css";
 
 *{
   margin: 0;
