@@ -9,6 +9,11 @@ module.exports = function(app) {
     .get(pagesController.new)
     .post(pagesController.create);
 
+  app.route('/admin/pages/:id')
+     .get(pagesController.show)
+     .put(pagesController.update)
+     .delete(pagesController.delete);
+
   // site visitor routes
   app.get('/views/:slug', pagesController.getPage);
 

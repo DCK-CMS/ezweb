@@ -49,5 +49,32 @@ module.exports = {
           pageData: page, arr: pageArr});
       });
     });
+  },
+  //admin update
+  update: function(req, res, next){
+    Page.findByIdAndUpdate(req.params.id, req.body, function(err, newPage){
+      if(err) return next(err);
+
+      Page.findById(req.params.id, function(err, page){
+        res.json(page);
+      });
+    });
+  },
+  //admin delete
+  delete: function(req, res, next){
+    Page.findById(req.params.id,function(err,page){
+      page.remove(function(err){
+        if(err) return next(err);
+
+        res.json(page);
+      });
+    });
+  },
+  //admin show
+  show: function(req, res, next){
+    console.log(req.params.id);
+    Page.findById(req.params.id, function(err, page){
+      res.json(page);
+    });
   }
 };
