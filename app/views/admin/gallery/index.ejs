@@ -27,21 +27,17 @@
           <!-- Img Upload Modal -->
           <% include ../partials/modals/imgurl_modal.ejs %>
           <h3>Uploaded Images</h3>
+
           <!-- Uploaded images grid -->
           <ul class="uploaded-img-grid">
-            <li>
-              <img src="http://placehold.it/250x250">
-            </li>
-            <li>
-              <img src="http://placehold.it/250x250">
-            </li>
-            <li>
-              <img src="http://placehold.it/250x250">
-            </li>
-            <li>
-              <img src="http://placehold.it/250x250">
-            </li>
-          </ul> <!-- end of uploaded images grid -->
+            <%for (var i = 0; i < imageArr.length; i++){%>
+              <li>
+                <img class="uploaded-img" src="<%=imageArr[i].img_url%>"/>
+              </li>
+            <%}%>
+          </ul>
+          <!-- end of uploaded images grid -->
+
         </div>
       </div>
     </div>

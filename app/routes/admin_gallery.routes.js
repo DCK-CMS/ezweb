@@ -3,6 +3,7 @@ module.exports = function(app) {
 
   // restful admin gallery routes
   app.route('/admin/gallery')
-    .get(galleryController.index);
+    .get(galleryController.index)
+    .post(galleryController.create);
 
 };
