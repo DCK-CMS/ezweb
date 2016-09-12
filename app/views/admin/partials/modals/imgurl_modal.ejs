@@ -1,0 +1,25 @@
+<!-- Image url uploader Modal -->
+<div class="modal fade" id="imgUpload-modal" tabindex="-1" role="dialog" aria-labelledby="imgUploadModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!-- Modal header -->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="imgUploadModalLabel">Upload image</h4>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <!-- Img Url Form -->
+        <% include ../forms/uploadImage_form.ejs %>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!-- Save button -->
+        <button type="submit" class="btn save-btn">
+          <i class="fa fa-check fa-fw"></i>Save image
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

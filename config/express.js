@@ -41,7 +41,8 @@ module.exports = function() {
 
   /* ~~~~ Setting up routes ~~~~ */
   require('../app/routes/sessions.routes')(app);
-  require('../app/routes/pages.routes')(app);
+  require('../app/routes/admin_pages.routes')(app);
+  require('../app/routes/admin_gallery.routes')(app);
 
   return app;
 };

@@ -14,18 +14,18 @@
           <div class="header-title"><%= title %></div>
           <!-- Toggle button -->
           <a href="#menu-toggle" id="menu-toggle" class="btn header-btn">Toggle Sidebar</a>
-          <!-- New page button -->
-          <a href="/admin/pages/new" class="btn header-btn"><i class="fa fa-plus fa-fw"></i> New page</a>
-
+          <!-- Button trigger modal -->
+          <button type="button" class="btn header-btn" data-toggle="modal" data-target="#imgUpload-modal">
+            <i class="fa fa-cloud-upload fa-fw"></i> Upload image
+          </button>
         </div>
       </div>
 
-      <!-- Content body row -->
+      <!-- Gallery body row -->
       <div class="row pages-contentbody-container">
         <div class="col-lg-12">
-          <div class="new-pages-row">
-            new pages row when new page created
-          </div>
+          <!-- Img Upload Modal -->
+          <% include ../partials/modals/imgurl_modal.ejs %>
         </div>
       </div>
     </div>
