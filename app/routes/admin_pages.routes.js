@@ -1,5 +1,5 @@
 module.exports = function(app) {
-  var pagesController  = require('../controllers/pages.controller');
+  var pagesController  = require('../controllers/admin_pages.controller');
 
   // restful admin pages routes
   app.route('/admin/pages')
