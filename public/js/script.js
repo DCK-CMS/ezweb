@@ -6,12 +6,33 @@ $(function(){
     $(".page-container").toggleClass("toggled");
   });
 
-  /* ---- Toggle images seletion ---- */
+  /* ---- Images selection ---- */
+  var selectedImgsArr = [];
+
   $(".img-item").click(function(e) {
     e.preventDefault();
+    var imageId;
 
+    // toggling selection CSS
     $(this).toggleClass("selected");
     $(this).children('.selected-tick').toggleClass("selected");
+
+    // get the selected image id
+    imageId = $(this).children('.select-img').data('id');
+    // if array does not contain imageId
+    if(selectedImgsArr.indexOf(imageId) === -1 ) {
+      selectedImgsArr.push(imageId);
+      console.log(selectedImgsArr);
+    } else {
+      selectedImgsArr.splice(selectedImgsArr.indexOf(imageId), 1);
+      console.log(selectedImgsArr);
+    }
+
+  });
+  /* ---- Images selected submit ---- */
+  $(".chooseImg-btn").click(function(e) {
+    e.preventDefault();
+    console.log('save');
   });
 
   //url shortener
