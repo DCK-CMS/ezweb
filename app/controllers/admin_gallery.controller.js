@@ -6,6 +6,7 @@ module.exports = {
       res.render('admin/gallery/index', {
         title: 'Gallery', imageArr: images
       });
+      // console.log(images);
     });
   },
   create: function(req, res, next){
