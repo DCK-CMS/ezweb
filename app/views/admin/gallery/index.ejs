@@ -31,8 +31,13 @@
           <!-- Uploaded images grid -->
           <ul class="uploaded-img-grid">
             <%for (var i = 0; i < imageArr.length; i++){%>
-              <li>
-                <img class="uploaded-img" src="<%=imageArr[i].img_url%>"/>
+              <li class="flip-container">
+                <div class="card">
+                  <figure class="front">
+                    <img class="uploaded-img" src="<%=imageArr[i].img_url%>"/>
+                  </figure>
+                  <figure class="back"><%=imageArr[i].name%></figure>
+                </div>
               </li>
             <%}%>
           </ul>

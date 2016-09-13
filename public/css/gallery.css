@@ -17,6 +17,40 @@
   width: 250px;
 }
 
+/* Flipping css */
+.flip-container {
+  position: relative;
+  perspective: 800px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.card figure {
+  margin: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card .back {
+  background: #fff;
+  opacity: 0.8;
+  font-size: 1.5em;
+  position: absolute;
+  top: 0;
+  transform: rotateY( 180deg );
+}
+
+.card:hover {
+  transform: rotateY( 180deg );
+}
+
 .select-img {
   height: 150px;
   width: 150px;
@@ -67,4 +101,4 @@
 .selected-img-txt {
   margin-top: 8px;
   font-size: 1.2em;
-}
+} /* -- end of image input area -- */
