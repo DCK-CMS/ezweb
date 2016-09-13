@@ -39,7 +39,9 @@ module.exports = function(passport) {
             newUser.password = password;
             //save new user
             newUser.save(function(err) {
-              if (err) throw err;
+              if (err) {
+                return done(null, false, req.flash('signupMessage', err.errors.password.message));
+              }
               return done(null, newUser);
             });
           }

@@ -55,6 +55,8 @@ module.exports = function() {
     // just move on to the next route handler
   });
 
+
+
   /* ~~~~ Setting up routes ~~~~ */
   require('../app/routes/user.routes')(app, passport); //load our routes and pass in our app and fully configured passport
   require('../app/routes/sessions.routes')(app);
