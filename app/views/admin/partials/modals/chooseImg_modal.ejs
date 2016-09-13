@@ -1,0 +1,33 @@
+<!-- Choose image Modal -->
+<div class="modal fade" id="chooseImg-modal" tabindex="-1" role="dialog" aria-labelledby="chooseImgModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!-- Modal header -->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="chooseImgModalLabel">Select your image(s)</h4>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <!-- Uploaded image container -->
+        <!-- Uploaded images grid -->
+        <ul class="uploaded-img-grid">
+          <%for (var i = 0; i < imageArr.length; i++){%>
+            <li class="img-item">
+              <div class="selected-tick"></div>
+              <img class="select-img" src="<%=imageArr[i].img_url%>"/>
+            </li>
+          <%}%>
+        </ul><!-- end of uploaded images grid -->
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!-- Save button -->
+        <button type="submit" class="btn save-btn">
+          <i class="fa fa-check fa-fw"></i>Choose image
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
