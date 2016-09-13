@@ -62,6 +62,7 @@ module.exports = function() {
   require('../app/routes/sessions.routes')(app);
   require('../app/routes/admin_pages.routes')(app);
   require('../app/routes/admin_gallery.routes')(app);
+  require('../app/routes/visitor_pages.routes')(app);
 
   return app;
 };

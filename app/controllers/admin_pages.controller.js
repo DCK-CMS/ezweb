@@ -38,6 +38,7 @@ module.exports = {
     });
   },
 
+
   // Visitor side logic
   getPage: function(req, res, next) {
     var pageArr = [];
@@ -66,6 +67,7 @@ module.exports = {
       });
     });
   },
+
   //admin update
   update: function(req, res, next) {
     Page.findByIdAndUpdate(req.params.id, req.body, function(err, newPage) {
@@ -87,9 +89,8 @@ module.exports = {
     });
   },
   //admin show
-  show: function(req, res, next) {
-    console.log(req.params.id);
-    Page.findById(req.params.id, function(err, page) {
+  show: function(req, res, next){
+    Page.findById(req.params.id, function(err, page){
       res.json(page);
     });
   }

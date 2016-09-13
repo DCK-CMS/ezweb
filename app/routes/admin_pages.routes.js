@@ -1,5 +1,5 @@
 module.exports = function(app) {
-  var pagesController  = require('../controllers/pages.controller');
+  var pagesController  = require('../controllers/admin_pages.controller');
 
   // restful admin pages routes
   app.route('/admin/pages')
@@ -13,8 +13,5 @@ module.exports = function(app) {
      .get(pagesController.show)
      .put(pagesController.update)
      .delete(pagesController.delete);
-
-  // site visitor routes
-  app.get('/views/:slug', pagesController.getPage);
 
 };

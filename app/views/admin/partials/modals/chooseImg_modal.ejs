@@ -9,13 +9,12 @@
       </div>
       <!-- Modal body -->
       <div class="modal-body">
-        <!-- Uploaded image container -->
         <!-- Uploaded images grid -->
         <ul class="uploaded-img-grid">
           <%for (var i = 0; i < imageArr.length; i++){%>
             <li class="img-item">
               <div class="selected-tick"></div>
-              <img class="select-img" src="<%=imageArr[i].img_url%>"/>
+              <img class="select-img" src="<%=imageArr[i].img_url%>" data-id="<%=imageArr[i]._id%>"/>
             </li>
           <%}%>
         </ul><!-- end of uploaded images grid -->
@@ -24,7 +23,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <!-- Save button -->
-        <button type="submit" class="btn save-btn">
+        <button type="button" class="btn save-btn chooseImg-btn">
           <i class="fa fa-check fa-fw"></i>Choose image
         </button>
       </div>
