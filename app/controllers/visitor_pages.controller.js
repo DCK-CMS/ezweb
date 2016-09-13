@@ -1,4 +1,5 @@
 var Page = require('mongoose').model('Page');
+var Header = require('mongoose').model('Header');
 
 module.exports =  {
   // Visitor side logic
@@ -20,8 +21,15 @@ module.exports =  {
           };
           pageArr.push(pg);
         }
-        res.render('templates/'+page.template+'_template', {
-          pageData: page, arr: pageArr});
+        Header.find({'type':'css'}, function(err, headerAttr){
+
+          Header.find({'type':'text'}, function(err, appName){
+            res.render('templates/'+page.template+'_template', {
+              pageData: page, arr: pageArr, styleArr: headerAttr, logo: appName[0].value});
+          });
+
+        });
+
       });
     });
   },

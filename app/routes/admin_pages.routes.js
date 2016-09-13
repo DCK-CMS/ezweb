@@ -14,7 +14,4 @@ module.exports = function(app) {
      .put(pagesController.update)
      .delete(pagesController.delete);
 
-  // site visitor routes
-  app.get('/views/:slug', pagesController.getPage);
-
 };

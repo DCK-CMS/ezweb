@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
 
 var headerSchema = new mongoose.Schema({
-  logo: String,
-  bg_color: String
+  attribute: String,
+  value: String,
+  type: String,
+  class: String
 });
-module.exports = mongoose.model('Header',headerSchema);
+module.exports = mongoose.model('Header', headerSchema);
