@@ -21,6 +21,7 @@
 .flip-container {
   position: relative;
   perspective: 800px;
+  border-bottom: 1px solid #ddd;
 }
 
 .card {
@@ -51,6 +52,27 @@
   transform: rotateY( 180deg );
 }
 
+.confirm-no-btn, .confirm-yes-btn {
+  width: 49%;
+  font-weight: 600;
+}
+
+.confirm-no-btn {
+  color: #999;
+}
+
+.confirm-no-btn:hover {
+  color: red;
+}
+
+.confirm-yes-btn {
+  color: black;
+}
+
+.confirm-yes-btn:hover {
+  color: green;
+}
+
 .select-img {
   height: 150px;
   width: 150px;
@@ -71,6 +93,7 @@
 .selected-img-wrapper {
   background-color: #AEA8D3;
   padding: 20px 15px;
+  margin-bottom: 10px;
 }
 
 .selected-img-container a {

@@ -67,4 +67,35 @@
 
 .new-pages-row {
   background-color: #fff;
+  padding: 18px 10px;
+  border-bottom: 2px solid #ddd;
+  -moz-transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.new-pages-row:hover {
+  -moz-transform: scale(1.03);
+  -webkit-transform: scale(1.03);
+  transform: scale(1.03);
+}
+
+.edit-btn {
+  float: right;
+  color: #5bc0de;
+  font-weight: 600;
+}
+
+.edit-btn:hover {
+  color: #31b0d5;
+}
+
+.del-btn {
+  float: right;
+  color: #d9534f;
+  font-weight: 600;
+}
+
+.del-btn:hover {
+  color: #c9302c;
 }
