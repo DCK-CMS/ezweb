@@ -39,7 +39,9 @@
 
         </div>
       </div>
-
+      <% if (message.length>0) { %>
+      <p class="alert alert-danger"><%= message %></p>
+      <% } %>
       <!-- Content body row -->
       <div class="row pages-contentbody-container">
         <div class="col-lg-12">

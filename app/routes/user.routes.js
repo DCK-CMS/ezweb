@@ -16,8 +16,7 @@ module.exports = function(app, passport) {
     .get(function(req, res) {
       res.render('admin/sessions/signup', {
         title: 'Signup to CMS',
-        message: req.flash('signupMessage'),
-        error: req.flash('error')
+        message: req.flash('signupMessage')
       });
     })
     .post(passport.authenticate('signup', {
