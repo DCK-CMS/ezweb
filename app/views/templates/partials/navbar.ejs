@@ -1,8 +1,9 @@
 <nav class="navbar navbar-default navCustom">
-  <%if(logo.length > 0){%>
-    <h1 class="appName"><%= logo[0].value%></h1>
+
+  <%if(url.length > 0){%>
+    <img class="logoBrand" src="<%=url[0].value%>" />
   <%}else{%>
-    <h1 class="appName"><%=name%></h1>
+    <img class="logoBrand" src="http://i.imgur.com/6bflQGQ.png" />
   <%}%>
   <%if(arr.length > 0){%>
     <ul class="nav nav-pills">

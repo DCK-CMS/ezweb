@@ -23,9 +23,9 @@ module.exports =  {
         }
         Header.find({'type':'css'}, function(err, headerAttr){
 
-          Header.find({'type':'text'}, function(err, appName){
+          Header.find({'type':'url'}, function(err, logoUrl){
             res.render('templates/'+page.template+'_template', {
-              pageData: page, arr: pageArr, styleArr: headerAttr, logo: appName});
+              pageData: page, arr: pageArr, styleArr: headerAttr, url: logoUrl});
           });
 
         });
