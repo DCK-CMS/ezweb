@@ -1,0 +1,38 @@
+.navCustom {
+  background-color: #FF9100;
+  margin-bottom: 0px;
+  border: none;
+}
+
+.nav-wrapper {
+  margin: 0 auto;
+  max-width: 985px;
+}
+
+.nav-cell {
+  box-sizing: border-box;
+  width: 100%;
+  display: inline-block;
+  margin: 0;
+  padding: 0 12.5px;
+  margin-bottom: 25px;
+}
+
+.nav-cell-wrapper {
+  border-bottom: 1px solid #eee;
+  padding-top: 23px;
+}
+
+.logo-header {
+  float: left;
+  width: 200px;
+}
+
+.navPillCustom {
+  color: #fff;
+}
+
+.navPillCustom:hover {
+  background-color: #8A00A3 !important;
+  color: #fff;
+}

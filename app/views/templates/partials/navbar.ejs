@@ -1,10 +1,17 @@
 <nav class="navbar navbar-default navCustom">
-
-  <%if(url.length > 0){%>
-    <img class="logoBrand" src="<%=url[0].value%>" />
-  <%}else{%>
-    <img class="logoBrand" src="http://i.imgur.com/6bflQGQ.png" />
-  <%}%>
+  <div class="nav-cell">
+    <div class="nav-cell-wrapper">
+      <!-- Logo -->
+      <div class="logo-header">
+        <%if(url.length > 0){%>
+          <img class="logoBrand" src="<%=url[0].value%>" />
+        <%}else{%>
+          <img class="logoBrand" src="http://i.imgur.com/6bflQGQ.png" />
+        <%}%>
+      </div>
+    </div>
+  </div>
+  <!-- Navigation tabs -->
   <%if(arr.length > 0){%>
     <ul class="nav nav-pills">
       <% for(var i = 0; i < arr.length; i++){%>
