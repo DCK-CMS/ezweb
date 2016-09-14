@@ -1,0 +1,38 @@
+<div id="wrapper" class="toggled">
+
+  <!-- Sidebar -->
+  <% include ../partials/sidebar.ejs %>
+  <!-- #sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <div class="container-fluid page-container">
+      <!-- Header row -->
+      <div class="row admin-header">
+        <div class="col-lg-12">
+          <!-- Header title -->
+          <div class="header-title"><%= title %></div>
+          <!-- Toggle button -->
+          <a href="#menu-toggle" id="menu-toggle" class="btn header-btn">Toggle Sidebar</a>
+
+          <div class="clearfix"></div>
+
+        </div>
+      </div>
+
+      <!-- Content body row -->
+      <div class="row pages-contentbody-container">
+        <div class="col-lg-12">
+          <!-- Select image modal -->
+          <% include ../partials/modals/chooseImg_modal.ejs %>
+          <!-- Selected template form -->
+          <!-- this part should render the selected form to edit -->
+          <% include ../partials/forms/home_form.ejs %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper -->

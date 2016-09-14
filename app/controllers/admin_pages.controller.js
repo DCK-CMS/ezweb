@@ -91,7 +91,14 @@ module.exports = {
   //admin show
   show: function(req, res, next){
     Page.findById(req.params.id, function(err, page){
-      res.json(page);
+      Image.find({}, function(err, images) {
+        res.render('admin/pages/show', {
+          title: 'Editing <page.title> template',
+          page: page,
+          imageArr: images
+        });
+      });
+
     });
   }
 };

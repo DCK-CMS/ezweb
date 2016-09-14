@@ -23,8 +23,25 @@
       <!-- Content body row -->
       <div class="row pages-contentbody-container">
         <div class="col-lg-12">
+          <!-- Confirm deletion Modal -->
+          <% include ../partials/modals/confirmDel_modal.ejs %>
+          
           <div class="new-pages-row">
-            new pages row when new page created
+            (Page title here) /admin/pages/(pageId)/edit
+            <!-- delete button -->
+            <a class="btn del-btn" data-toggle="modal" data-target="#confirmDel-modal">
+              <i class="fa fa-trash-o fa-fw"></i>
+              Delete
+            </a>
+            <!-- href link to edit page -->
+            <a href="/admin/pages/:pageid/edit" class="btn edit-btn">
+              <i class="fa fa-pencil-square-o fa-fw"></i>
+              Edit
+            </a>
+
+          </div>
+          <div class="new-pages-row">
+            (Page title here)
           </div>
         </div>
       </div>
