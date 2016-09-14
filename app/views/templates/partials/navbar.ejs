@@ -1,24 +1,32 @@
 <nav class="navbar navbar-default navCustom">
-  <div class="nav-cell">
-    <div class="nav-cell-wrapper">
-      <!-- Logo -->
-      <div class="logo-header">
+  <div class="nav-wrapper">
+    <div class="nav-cell">
+      <div class="nav-cell-wrapper">
+        <!-- Logo -->
         <%if(url.length > 0){%>
-          <img class="logoBrand" src="<%=url[0].value%>" />
+          <a class="logo-header" href="#">
+            <img class="logoBrand" src="<%=url[0].value%>" />
+          </a>
         <%}else{%>
-          <img class="logoBrand" src="http://i.imgur.com/6bflQGQ.png" />
+          <a class="logo-header" href="#">
+            <img class="logoBrand" src="http://i.imgur.com/351vaj3.png" />
+          </a>
+        <%}%>
+        <!-- Navigation tabs -->
+        <%if(arr.length > 0){%>
+          <ul class="nav nav-pills nav-menu">
+            <% for(var i = 0; i < arr.length; i++){%>
+              <li class="menu-item">
+                <a class="navPillCustom" href="<%= arr[i].slug%>">
+                  <%= arr[i].title%>
+                </a>
+              </li>
+            <%}%>
+          </ul>
         <%}%>
       </div>
     </div>
-  </div>
-  <!-- Navigation tabs -->
-  <%if(arr.length > 0){%>
-    <ul class="nav nav-pills">
-      <% for(var i = 0; i < arr.length; i++){%>
-        <li><a class="navPillCustom" href="<%= arr[i].slug%>"><%= arr[i].title%></a></li>
-      <%}%>
-    </ul>
-  <%}%>
+  </div><!-- *nav-wrapper -->
 </nav>
 
 <style>

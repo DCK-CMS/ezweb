@@ -19,20 +19,41 @@
 }
 
 .nav-cell-wrapper {
-  border-bottom: 1px solid #eee;
+  /*border-bottom: 1px solid #eee;*/
   padding-top: 23px;
 }
 
 .logo-header {
+  border-bottom: none;
   float: left;
+  width: 200px;
+  margin-top: -6px;
+}
+
+.logoBrand {
   width: 200px;
 }
 
-.navPillCustom {
+.nav-menu {
+  float: right;
+  clear: none;
+  margin: 12.5px 0 0;
+}
+
+.nav-menu > .menu-item {
+  margin-right: 1.1em;
+}
+
+.menu-item > .navPillCustom {
+  font-size: 1.3em;
   color: #fff;
+  padding-bottom: 26px;
+  margin-bottom: -1px;
+  transition: all .2s ease-out;
 }
 
 .navPillCustom:hover {
-  background-color: #8A00A3 !important;
-  color: #fff;
+  background-color: #FF9100 !important;
+  /*color: #8A00A3;*/
+  transform: translate(0,-3px);
 }
