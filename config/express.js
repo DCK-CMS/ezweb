@@ -10,9 +10,9 @@ var config = require('./config'),
   passport = require('passport'),
   flash = require('connect-flash'),
   session = require('express-session'),
-  cloudinary = require ('cloudinary'),
+  cloudinary = require('cloudinary'),
   expressLayouts = require('express-ejs-layouts');
-  var isLoggedIn = require('./auth.middleware').isLoggedIn;
+var isLoggedIn = require('./auth.middleware').isLoggedIn;
 
 
 module.exports = function() {
@@ -23,10 +23,10 @@ module.exports = function() {
 
   //cloudinary configuration
   cloudinary.config({
-  cloud_name: config.cloud_name,
-  api_key: config.api_key,
-  api_secret: config.api_secret
-});
+    cloud_name: config.cloud_name,
+    api_key: config.api_key,
+    api_secret: config.api_secret
+  });
 
   // initialize the required module
   if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
@@ -58,10 +58,11 @@ module.exports = function() {
   app.use(expressLayouts);
   app.use(express.static('public'));
 
-  app.all("/admin/*", isLoggedIn, function(req, res, next) {
-    next(); // if the middleware allowed us to get here,
-    // just move on to the next route handler
-  });
+
+  // app.all("/admin/*", isLoggedIn, function(req, res, next) {
+  //   next(); // if the middleware allowed us to get here,
+  //   // just move on to the next route handler
+  // });
 
 
 
