@@ -33,4 +33,8 @@ module.exports =  {
       });
     });
   },
+
+  getHome: function(req, res) {
+    res.render('templates/home_test');
+  }
 };

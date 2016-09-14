@@ -1,0 +1,26 @@
+.main {
+  width: 100%;
+  position: relative;
+  margin-top: 15px;
+}
+
+.main-header {
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 30px 50px 30px;
+}
+
+.main-header > h3 {
+  width: 90%;
+  font-size: 2.4em;
+	line-height: 1.2em;
+	margin: 0 auto;
+	font-weight: 700;
+	color: #333;
+}
+.main-header > h3 span {
+	display: block;
+	font-size: 0.7em;
+	font-weight: 300;
+}
