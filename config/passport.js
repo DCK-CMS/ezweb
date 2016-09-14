@@ -40,7 +40,9 @@ module.exports = function(passport) {
             //save new user
             newUser.save(function(err) {
               if (err) {
-                return done(null, false, req.flash('signupMessage', err.errors.password.message));
+                for(var key in err.errors){
+                return done(null, false,   req.flash('signupMessage',err.errors[key].message));
+              }
               }
               return done(null, newUser);
             });
