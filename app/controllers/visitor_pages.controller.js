@@ -24,7 +24,7 @@ module.exports =  {
         Header.find({'type':'css'}, function(err, headerAttr){
 
           Header.find({'type':'text'}, function(err, appName){
-            res.render('templates/'+'contact'+'_template', {
+            res.render('templates/'+page.template+'_template', {
               pageData: page, arr: pageArr, styleArr: headerAttr, logo: appName});
           });
 
