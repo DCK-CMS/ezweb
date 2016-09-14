@@ -1,0 +1,79 @@
+
+<form class="form-horizontal" action="/admin/pages/new" method="post">
+
+  <input type="hidden" name="template" value="home">
+
+  <div class="form-group form-group-lg">
+    <label for="pageTitle" class="col-sm-2 control-label">Title</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="pageTitle" name="title" placeholder="Page Title">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="slug" class="col-sm-2 control-label">URL Slug</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="urlSlug" placeholder="URL identifier for this page" name="slug">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="carouselTitle" class="col-sm-2 control-label">Carousel title</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="carouselTitle" name="carousel_title" placeholder="Text inside carousel">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="carouselImg" class="col-sm-2 control-label">Carousel Image</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="carouselImg" placeholder="Url for carousel image" name="carousel_img">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="contentText" class="col-sm-2 control-label">Content text</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="contentText" name="text" placeholder="Text for content title">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="imgUrl" class="col-sm-2 control-label">Img Url</label>
+    <div class="col-sm-10">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn selector-btn" data-toggle="modal" data-target="#chooseImg-modal">
+        <i class="fa fa-plus fa-fw"></i> Choose image
+      </button>
+      <!-- Choose image Modal -->
+    </div>
+  </div>
+
+  <!-- Show selected images -->
+  <div class="col-sm-10 col-sm-offset-2 selected-img-wrapper">
+    <div class="selected-img-container">
+      <a>
+        <img class="select-img" src="http://img12.deviantart.net/a639/i/2009/008/4/b/no__not_my_ketchup____by_acer_v.jpg" />
+        <textarea rows="3" cols="15"></textarea>
+      </a>
+
+      <a>
+        <img class="select-img" src="http://img12.deviantart.net/a639/i/2009/008/4/b/no__not_my_ketchup____by_acer_v.jpg" />
+      </a>
+
+      <a>
+        <img class="select-img" src="http://img12.deviantart.net/a639/i/2009/008/4/b/no__not_my_ketchup____by_acer_v.jpg" />
+      </a>
+
+      <a>
+        <img class="select-img" src="http://img12.deviantart.net/a639/i/2009/008/4/b/no__not_my_ketchup____by_acer_v.jpg" />
+      </a>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn save-btn"><i class="fa fa-check fa-fw"></i>Save template</button>
+    </div>
+  </div>
+</form>

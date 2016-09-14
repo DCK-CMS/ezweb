@@ -1,0 +1,20 @@
+/* THIS IS MAIN CSS FILE TO IMPORT ALL OTHER CSS FILES */
+@import "sidebar.css";
+@import "pages.css";
+@import "forms.css";
+@import "gallery.css";
+
+*{
+  margin: 0;
+  padding: 0;
+	box-sizing: border-box;
+}
+
+*:before,
+*:after{
+	box-sizing: border-box;
+}
+
+body {
+  background-color: #F5F5FA;
+}

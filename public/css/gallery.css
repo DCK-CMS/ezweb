@@ -1,0 +1,127 @@
+.uploaded-img-grid {
+  list-style: none;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.uploaded-img-grid > li {
+  display: inline-block;
+  margin: 10px 5px 0 5px;
+  vertical-align: top;
+}
+
+.uploaded-img {
+  height: 250px;
+  width: 250px;
+}
+
+/* Flipping css */
+.flip-container {
+  position: relative;
+  perspective: 800px;
+  border-bottom: 1px solid #ddd;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.card figure {
+  margin: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card .back {
+  background: #fff;
+  opacity: 0.8;
+  font-size: 1.5em;
+  position: absolute;
+  top: 0;
+  transform: rotateY( 180deg );
+}
+
+.card:hover {
+  transform: rotateY( 180deg );
+}
+
+.confirm-no-btn, .confirm-yes-btn {
+  width: 49%;
+  font-weight: 600;
+}
+
+.confirm-no-btn {
+  color: #999;
+}
+
+.confirm-no-btn:hover {
+  color: red;
+}
+
+.confirm-yes-btn {
+  color: black;
+}
+
+.confirm-yes-btn:hover {
+  color: green;
+}
+
+.select-img {
+  height: 150px;
+  width: 150px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Toggle selected image */
+.selected-tick.selected {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  opacity: 0.6;
+  background-image: url('../images/tick-icon.jpg');
+}
+
+/* Selected image input area */
+.selected-img-wrapper {
+  background-color: #AEA8D3;
+  padding: 20px 15px;
+  margin-bottom: 10px;
+}
+
+.selected-img-container a {
+  background: white;
+	display: inline;
+	float: left;
+	margin: 0 20px 30px 35px;
+	padding: 10px 10px 25px;
+	text-align: center;
+	text-decoration: none;
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+	-moz-box-shadow: 0 4px 6px rgba(0,0,0,.3);
+	box-shadow: 0 4px 6px rgba(0,0,0,.3);
+}
+
+.selected-img-container a:after {
+	color: #333;
+	font-size: 20px;
+	content: attr(title);
+	position: relative;
+	top:15px;
+}
+
+.selected-img-container img {
+	display: block;
+}
+
+.selected-img-txt {
+  margin-top: 8px;
+  font-size: 1.2em;
+} /* -- end of image input area -- */

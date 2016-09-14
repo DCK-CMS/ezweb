@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default navCustom">
+  <h1 class="appName"><%= logo%></h1>
+  <ul class="nav nav-pills">
+    <% for(var i = 0; i < arr.length; i++){%>
+      <li><a class="navPillCustom" href="<%= arr[i].slug%>"><%= arr[i].title%></a></li>
+    <%}%>
+  </ul>
+</nav>
+
+<style>
+  .appName {
+    color: white;
+  }
+  .appName, ul {
+    display: inline-block;
+  }
+  <%for(var i = 0; i < styleArr.length; i++){%>
+    .<%=styleArr[i].class%>{
+      <%=styleArr[i].attribute%>:<%=styleArr[i].value%> !important
+    }
+  <%}%>
+</style>
