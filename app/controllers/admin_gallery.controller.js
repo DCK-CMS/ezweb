@@ -1,5 +1,5 @@
 var Image = require('mongoose').model('Image'),
-cloudinary = require('cloudinary');
+  cloudinary = require('cloudinary');
 
 module.exports = {
   index: function(req, res) {
@@ -12,18 +12,19 @@ module.exports = {
     });
   },
   create: function(req, res, next) {
-    console.log(req.body);
+    var newImage = new Image();
+    newImage.name = req.body.name;
     cloudinary.uploader.upload(req.files.img_path.path, function(result) {
-      console.log(result.url);
+      newImage.img_url = result.url;
+      newImage.save(function(err) {
+        if (err) return next(err);
+
+        res.redirect('/admin/gallery');
+      });
     }, {
       public_id: "test"
     });
-    // var newImage = new Image(req.body);
-    // newImage.save(function(err){
-    //   if(err) return next(err);
-    //
-    //   res.redirect('/admin/gallery');
-    // });
+
   },
   show: function(req, res, next) {
     Image.findById(req.params.id, function(err, image) {
