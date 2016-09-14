@@ -1,22 +1,28 @@
 <nav class="navbar navbar-default navCustom">
-  <h1 class="appName"><%= logo%></h1>
-  <ul class="nav nav-pills">
-    <% for(var i = 0; i < arr.length; i++){%>
-      <li><a class="navPillCustom" href="<%= arr[i].slug%>"><%= arr[i].title%></a></li>
-    <%}%>
-  </ul>
+  <%if(logo.length > 0){%>
+    <h1 class="appName"><%= logo[0].value%></h1>
+  <%}else{%>
+    <h1 class="appName"><%=name%></h1>
+  <%}%>
+  <%if(arr.length > 0){%>
+    <ul class="nav nav-pills">
+      <% for(var i = 0; i < arr.length; i++){%>
+        <li><a class="navPillCustom" href="<%= arr[i].slug%>"><%= arr[i].title%></a></li>
+      <%}%>
+    </ul>
+  <%}%>
 </nav>
 
 <style>
-  .appName {
-    color: white;
-  }
+
   .appName, ul {
     display: inline-block;
   }
-  <%for(var i = 0; i < styleArr.length; i++){%>
-    .<%=styleArr[i].class%>{
-      <%=styleArr[i].attribute%>:<%=styleArr[i].value%> !important
-    }
+  <%if(styleArr.length > 0){%>
+    <%for(var i = 0; i < styleArr.length; i++){%>
+      .<%=styleArr[i].class%>{
+        <%=styleArr[i].attribute%>:<%=styleArr[i].value%> !important
+      }
+    <%}%>
   <%}%>
 </style>

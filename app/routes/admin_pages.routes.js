@@ -9,6 +9,8 @@ module.exports = function(app) {
     .get(pagesController.new)
     .post(pagesController.create);
 
+  app.route('/admin/pages/setHeader')           .post(pagesController.updateHeader);
+
   app.route('/admin/pages/:id')
      .get(pagesController.show)
      .put(pagesController.update)

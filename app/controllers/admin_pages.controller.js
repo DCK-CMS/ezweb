@@ -1,5 +1,6 @@
 var Page = require('mongoose').model('Page');
 var Image = require('mongoose').model('Image');
+var Header = require('mongoose').model('Header');
 
 module.exports = {
   // Admin side logic
@@ -11,10 +12,25 @@ module.exports = {
 
   new: function(req, res, next) {
     Image.find({}, function(err, images) {
-      res.render('admin/pages/new', {
-        title: 'Select your template',
-        message: req.flash('error'),
-        imageArr: images
+      Header.find({}, function(err, headerAttr){
+
+        //retrieve all styles
+        var styleArr = headerAttr.filter(function(data){
+          return data.type === 'css';
+        });
+        //retrieve logo name
+        var logo = headerAttr.filter(function(data){
+          return data.type === 'text';
+        });
+
+        res.render('admin/pages/new', {
+          title: 'Select your template',
+          message: req.flash('error'),
+          imageArr: images,
+          appName: logo,
+          styles: styleArr
+        });
+
       });
     });
   },
@@ -93,5 +109,21 @@ module.exports = {
     Page.findById(req.params.id, function(err, page){
       res.json(page);
     });
+  },
+  updateHeader: function(req, res, next){
+    var reqObj = req.body;
+    for(var item in reqObj){
+
+      if(item !== 'appName'){
+        var attr = item.split('&')[0];
+        var classVal = item.split('&')[1];
+        console.log(reqObj[item]);
+         Header.update({'attribute': attr, 'class': classVal}, {value: reqObj[item]}, function(err, headerAttr){
+
+         });
+        res.redirect('/admin/pages/new');
+      }
+
+    }
   }
 };

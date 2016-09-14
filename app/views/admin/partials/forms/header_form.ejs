@@ -1,21 +1,30 @@
-<form class="form-horizontal">
+<form class="form-horizontal" action="/admin/pages/setHeader" method="POST">
+
   <div class="form-group form-group-lg">
-    <label for="logoName" class="col-sm-2 control-label">Logo</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="logoName" placeholder="Logo name here">
+      <label for="logoName" class="col-sm-2 control-label">Logo</label>
+      <div class="col-sm-10">
+        <%if(appName.length > 0){%>
+          <input type="text" class="form-control" id="logoName" value="<%=appName[0].value%>"placeholder="Logo name here" name="appName">
+        <%}else{%>
+          <input type="text" class="form-control" id="logoName" value="<%= name %>"placeholder="Logo name here" name="appName">
+        <%}%>
+      </div>
     </div>
-  </div>
+    <%if(styles.length > 0){
+      for(var i = 0; i < styles.length; i++){%>
+        <div class="form-group">
+          <label for="<%=styles[i].attribute%>-<%=styles[i].class%>" class="col-sm-2 control-label">  <%=styles[i].formName%></label>
+          <div class="col-sm-5">
+            <input type="color" class="form-control" id="<%=styles[i].attribute%>-<%=styles[i].class%>" value="<%=styles[i].value%>" name="<%=styles[i].attribute%>&<%=styles[i].class%>">
+          </div>
+        </div>
+      <%}
+    }%>
 
-  <div class="form-group">
-    <label for="navbar-bgcolor" class="col-sm-2 control-label">Background color</label>
-    <div class="col-sm-10">
-      <input type="color" class="form-control" id="navbar-bgcolor" placeholder="Select background color for navbar">
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn save-btn"><i class="fa fa-check fa-fw"></i>Save template</button>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn save-btn"><i class="fa fa-check fa-fw"></i>Save template</button>
-    </div>
-  </div>
 </form>
