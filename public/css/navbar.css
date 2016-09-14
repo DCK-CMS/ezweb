@@ -19,11 +19,16 @@
 }
 
 .nav-cell-wrapper {
+<<<<<<< Updated upstream
   /*border-bottom: 1px solid #eee;*/
+=======
+  border-bottom: 1px solid #eee;
+>>>>>>> Stashed changes
   padding-top: 23px;
 }
 
 .logo-header {
+<<<<<<< Updated upstream
   border-bottom: none;
   float: left;
   width: 200px;
@@ -56,4 +61,17 @@
   background-color: #FF9100 !important;
   /*color: #8A00A3;*/
   transform: translate(0,-3px);
+=======
+  float: left;
+  width: 200px;
+}
+
+.navPillCustom {
+  color: #fff;
+}
+
+.navPillCustom:hover {
+  background-color: #8A00A3 !important;
+  color: #fff;
+>>>>>>> Stashed changes
 }
