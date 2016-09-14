@@ -64,6 +64,19 @@ module.exports = function() {
   //   // just move on to the next route handler
   // });
 
+  app.use(function(req, res, next) {
+    // this middleware will call for each requested
+    // and we checked for the requested query properties
+    // if _method was existed
+    if (req.query._method == 'DELETE') {
+      // change the original METHOD
+      // into DELETE method
+      req.method = 'DELETE';
+      // and set requested url
+      req.url = req.path;
+    }
+    next();
+  });
 
 
   /* ~~~~ Setting up routes ~~~~ */

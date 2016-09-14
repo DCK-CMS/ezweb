@@ -6,24 +6,30 @@ module.exports = {
     Image.find({}, function(err, images) {
       res.render('admin/gallery/index', {
         title: 'Gallery',
+        message: req.flash('error'),
         imageArr: images
       });
       // console.log(images);
     });
   },
   create: function(req, res, next) {
-    var newImage = new Image();
-    newImage.name = req.body.name;
-    cloudinary.uploader.upload(req.files.img_path.path, function(result) {
-      newImage.img_url = result.url;
-      newImage.save(function(err) {
-        if (err) return next(err);
-
-        res.redirect('/admin/gallery');
+    if(req.body.name){
+      var newImage = new Image();
+      newImage.name = req.body.name;
+      cloudinary.uploader.upload(req.files.img_path.path, function(result) {
+        newImage.img_url = result.url;
+        newImage.save(function(err) {
+          if (err) return next(err);
+          res.redirect('/admin/gallery');
+        });
+      }, {
+        public_id: req.body.name
       });
-    }, {
-      public_id: "test"
-    });
+    }else {
+      req.flash('error','Please key in a name for the image');
+      res.redirect('/admin/gallery');
+    }
+
 
   },
   show: function(req, res, next) {
@@ -44,8 +50,9 @@ module.exports = {
     Image.findById(req.params.id, function(err, image) {
       image.remove(function(err) {
         if (err) return next(err);
-
-        res.json(image);
+        cloudinary.uploader.destroy(image.name, function(result) {
+          res.redirect('/admin/gallery');
+        });
       });
     });
   }
