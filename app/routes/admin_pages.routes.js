@@ -1,3 +1,4 @@
+
 module.exports = function(app) {
   var pagesController  = require('../controllers/admin_pages.controller');
 
