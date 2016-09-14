@@ -1,2 +1,71 @@
 <% include ./partials/navBar %>
-<h1>Home</h1>
+
+<!-- Carousel -->
+<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000" data-pause="hover">
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+
+    <div class="item active">
+      <img src="http://dotageeks.com/wp-content/uploads/2015/06/Techies-Dota-2-Wallpaper-5.jpg">
+      <div class="carousel-caption">
+        <h3>Hello</h3>
+        <p>Some text here yow</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="https://images5.alphacoders.com/403/403408.jpg">
+      <div class="carousel-caption">
+        <h3>mushimushi</h3>
+        <p>Some text here yow</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div> <!-- end of Carousel -->
+
+<!-- Main content -->
+<div class="main">
+  <!-- Title -->
+  <div class="main-header">
+    <h3>Main content title <span>with grid images</span></h3>
+  </div>
+  <!-- Thumbnail images grid -->
+  <ul id="og-grid" class="og-grid">
+    <!-- Each li stores 1 thumbnail -->
+    <!-- All data-" " = elements inside expanded view -->
+  	<li>
+  		<a data-largesrc="http://trunkweed.com/uploads/posts/images/428960-love-couples-wallpapers-hd-for-desktop.jpg" data-title="Azuki bean" data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
+  			<img src="http://3.bp.blogspot.com/-xtVjHMIjFSA/TsTXZS8rBOI/AAAAAAAABHs/Z2rlIeJbqBw/s250-c/Love-Couple-desktop-Wallpapers-HD-photo-images-1.jpg" alt="img01"/>
+  		</a>
+  	</li>
+  	<li>
+  		<a data-largesrc="http://www.planwallpaper.com/static/images/6768666-1080p-wallpapers.jpg" data-title="Veggies sunt bona vobis" data-description="Komatsuna prairie turnip wattle seed artichoke mustard horseradish taro rutabaga ricebean carrot black-eyed pea turnip greens beetroot yarrow watercress kombu.">
+  			<img src="http://www.planwallpaper.com/static/images/6768666-1080p-wallpapers.jpg" alt="img02"/>
+  		</a>
+  	</li>
+  	<li>
+  		<a data-largesrc="https://lovelace-media.imgix.net/uploads/141/f8cfbe10-eedf-0132-f0cf-0ed54733f8f5.jpg" data-title="Dandelion horseradish" data-description="Cabbage bamboo shoot broccoli rabe chickpea chard sea lettuce lettuce ricebean artichoke earthnut pea aubergine okra brussels sprout avocado tomato.">
+  			<img src="http://vignette1.wikia.nocookie.net/gameofthrones/images/f/fe/Whitewalker2.jpg/revision/latest?cb=20140603195101" alt="img03"/>
+  		</a>
+  	</li>
+  </ul>
+
+</div>
