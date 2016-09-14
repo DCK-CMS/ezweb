@@ -10,6 +10,7 @@ var config = require('./config'),
   passport = require('passport'),
   flash = require('connect-flash'),
   session = require('express-session'),
+  cloudinary = require ('cloudinary'),
   expressLayouts = require('express-ejs-layouts');
   var isLoggedIn = require('./auth.middleware').isLoggedIn;
 
@@ -19,6 +20,13 @@ module.exports = function() {
   // Instantiate express
   var app = express();
   require('./passport')(passport); //pass passport for configuration
+
+  //cloudinary configuration
+  cloudinary.config({
+  cloud_name: config.cloud_name,
+  api_key: config.api_key,
+  api_secret: config.api_secret
+});
 
   // initialize the required module
   if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {

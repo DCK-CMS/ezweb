@@ -10,13 +10,13 @@ module.exports = {
     });
   },
   create: function(req, res, next){
-
-    var newImage = new Image(req.body);
-    newImage.save(function(err){
-      if(err) return next(err);
-
-      res.redirect('/admin/gallery');
-    });
+    console.log(req.body);
+    // var newImage = new Image(req.body);
+    // newImage.save(function(err){
+    //   if(err) return next(err);
+    //
+    //   res.redirect('/admin/gallery');
+    // });
   },
   show: function(req, res, next){
     Image.findById(req.params.id, function(err, image){
