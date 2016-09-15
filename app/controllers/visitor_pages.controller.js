@@ -31,10 +31,11 @@ module.exports =  {
         });
 
       });
+      console.log(page);
     });
   },
 
   getHome: function(req, res) {
-    res.render('templates/home_test');
+    res.render('/home_test');
   }
 };

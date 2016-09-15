@@ -1,6 +1,26 @@
 <% include ./partials/navBar %>
-<h1><%= pageData.title %></h1>
-<img src="<%= pageData.carousel_img %>" alt="image" />
-<h3><%= pageData.carousel_title %></h3>
-<img src="<%= pageData.imgUrl %>" alt="image" />
-<p><%= pageData.text %></p>
+
+<!-- Carousel -->
+<% include ./partials/carousel %>
+
+<!-- Main content -->
+<div class="main">
+  <div class="row">
+    <div class="col-md-6 about-section-col">
+      <!-- Title -->
+      <div class="about-section-header">
+        <h3><%= pageData.title %></h3>
+      </div>
+      <!-- Description -->
+      <div class="about-section-desc">
+        <p> <%= pageData.text %> </p>
+        <p>Text hereext hereext hereext hereext hereext hereext hereext hereext hereext hereext hereext hereext hereext hereext hereext hereext here</p>
+      </div>
+    </div>
+
+    <div class="col-md-5 about-img-col">
+      <img src="<%= pageData.imgUrl %>" alt="" />
+    </div>
+
+  </div>
+</div>

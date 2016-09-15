@@ -7,6 +7,7 @@
 @import "navbar.css";
 @import "carousel.css";
 @import "thumbnail-component.css";
+@import "about-component.css";
 
 *{
   margin: 0;
