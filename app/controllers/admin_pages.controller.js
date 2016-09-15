@@ -81,7 +81,7 @@ module.exports = {
       page.remove(function(err) {
         if (err) return next(err);
 
-        res.json(page);
+        res.redirect('/admin/pages');
       });
     });
   },
