@@ -57,3 +57,20 @@
   /*color: #8A00A3;*/
   transform: translate(0,-3px);
 }
+
+/* Root nav */
+.navbar-root {
+  background-color: #4A4C82;
+}
+
+.nav-item {
+  border-right: 1px solid #eee;
+}
+
+.nav-item > a {
+  color: #fff;
+}
+
+.nav-item > a:hover {
+  color: #4A4C82;
+}
