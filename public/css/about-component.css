@@ -1,0 +1,25 @@
+.about-section-col {
+  width: 48%;
+  text-align: center;
+  margin: 0 1% 0 5%;
+}
+
+.about-img-col {
+  text-align: center;
+  margin: 0 1% 0 2%;
+}
+
+.about-section-header {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 15px 0 30px;
+}
+
+.about-section-desc {
+  line-height: 19px;
+}
+
+.about-section-desc > p {
+  padding-bottom: 12px;
+}

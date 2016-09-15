@@ -5,37 +5,43 @@ module.exports =  {
   // Visitor side logic
   getPage: function(req, res, next){
     var pageArr = [];
-
-    console.log("slug: "+ req.params.slug);
     Page.findOne({"slug": req.params.slug}, function(err, page){
-      var pageData = page;
-      console.log("page: " + page);
-      if(err) return next(err);
 
-      Page.find({}, function(err, pages){
+      if(page){
+
+        var pageData = page;
+
         if(err) return next(err);
 
-        for(var i = 0; i < pages.length; i++){
-          var pg = {
-            title: pages[i].title,
-            slug: pages[i].slug
-          };
-          pageArr.push(pg);
-        }
-        Header.find({'type':'css'}, function(err, headerAttr){
+        Page.find({}, function(err, pages){
+          if(err) return next(err);
 
-          Header.find({'type':'url'}, function(err, logoUrl){
-            res.render('templates/'+page.template+'_template', {
-              pageData: page, arr: pageArr, styleArr: headerAttr, url: logoUrl});
+          for(var i = 0; i < pages.length; i++){
+            var pg = {
+              title: pages[i].title,
+              slug: pages[i].slug
+            };
+            pageArr.push(pg);
+          }
+          Header.find({'type':'css'}, function(err, headerAttr){
+
+            Header.find({'type':'url'}, function(err, logoUrl){
+              res.render('templates/'+page.template+'_template', {
+                pageData: page, arr: pageArr, styleArr: headerAttr, url: logoUrl});
+            });
+
           });
 
         });
+      } else {
+        console.log('template not found ');
+        return res.render('error_partials/404');
+      }
 
-      });
     });
   },
 
   getHome: function(req, res) {
-    res.render('templates/home_test');
+    res.render('404');
   }
 };
