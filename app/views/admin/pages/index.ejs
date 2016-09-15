@@ -24,7 +24,7 @@
       <div class="row pages-contentbody-container">
         <div class="col-lg-12">
           <!-- Confirm deletion Modal -->
-          <% include ../partials/modals/confirmDel_modal.ejs %>
+
           <%if(pageArr.length > 0){%>
             <%for(var i = 0; i < pageArr.length; i++){%>
               <div class="new-pages-row">
@@ -38,8 +38,33 @@
                   Edit
                 </a>
               </div>
-            <%}
-          }else{%>
+
+            <!-- Confirm deletion Modal -->
+            <div class="modal fade" id="confirmDel-modal" tabindex="-1" role="dialog" aria-labelledby="confirmDelModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <!-- Modal header -->
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="confirmDelModalLabel">Are you sure?</h4>
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer text-center">
+                    <form action="/admin/pages/<%=pageArr[i]._id%>?_method=DELETE" method="post">
+                      <a class="btn confirm-no-btn" data-dismiss="modal">No, cancel</a>
+                      <!-- Yes -->
+                      <button type="submit" class="btn confirm-yes-btn" ><i class="fa fa-check fa-fw"></i>Yes, I'm sure</button>
+
+                    </form>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          <%}%>
+          <%}else{%>
             <h2>You have not created any pages yet.</h2>
           <%}%>
         </div>

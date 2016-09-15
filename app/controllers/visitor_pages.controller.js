@@ -6,9 +6,10 @@ module.exports =  {
   getPage: function(req, res, next){
     var pageArr = [];
 
+    console.log("slug: "+ req.params.slug);
     Page.findOne({"slug": req.params.slug}, function(err, page){
       var pageData = page;
-
+      console.log("page: " + page);
       if(err) return next(err);
 
       Page.find({}, function(err, pages){
