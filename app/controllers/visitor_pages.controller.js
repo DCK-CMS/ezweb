@@ -5,7 +5,10 @@ module.exports =  {
   // Visitor side logic
   getPage: function(req, res, next){
     var pageArr = [];
+
     Page.findOne({"slug": req.params.slug}, function(err, page){
+
+      if(err) return next(err);
 
       if(page){
 
