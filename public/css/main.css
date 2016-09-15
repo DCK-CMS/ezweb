@@ -8,6 +8,7 @@
 @import "carousel.css";
 @import "thumbnail-component.css";
 @import "about-component.css";
+@import "contact-component.css";
 
 *{
   margin: 0;
