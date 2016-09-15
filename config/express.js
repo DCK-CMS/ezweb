@@ -10,8 +10,9 @@ var config = require('./config'),
   passport = require('passport'),
   flash = require('connect-flash'),
   session = require('express-session'),
+  cloudinary = require('cloudinary'),
   expressLayouts = require('express-ejs-layouts');
-  var isLoggedIn = require('./auth.middleware').isLoggedIn;
+var isLoggedIn = require('./auth.middleware').isLoggedIn;
 
 
 module.exports = function() {
@@ -19,6 +20,13 @@ module.exports = function() {
   // Instantiate express
   var app = express();
   require('./passport')(passport); //pass passport for configuration
+
+  //cloudinary configuration
+  cloudinary.config({
+    cloud_name: config.cloud_name,
+    api_key: config.api_key,
+    api_secret: config.api_secret
+  });
 
   // initialize the required module
   if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
@@ -31,7 +39,8 @@ module.exports = function() {
     extended: false
   })); // get information from html
   app.use(bodyParser.json());
-  app.use(methodOverride());
+  // app.use(methodOverride('X-HTTP-Method-Override'));
+  app.use(methodOverride('_method'));
 
   // required for passport
   app.use(cookieParser());
@@ -50,11 +59,25 @@ module.exports = function() {
   app.use(expressLayouts);
   app.use(express.static('public'));
 
-  app.all("/admin/*", isLoggedIn, function(req, res, next) {
-    next(); // if the middleware allowed us to get here,
-    // just move on to the next route handler
-  });
 
+  // app.all("/admin/*", isLoggedIn, function(req, res, next) {
+  //   next(); // if the middleware allowed us to get here,
+  //   // just move on to the next route handler
+  // });
+
+  app.use(function(req, res, next) {
+    // this middleware will call for each requested
+    // and we checked for the requested query properties
+    // if _method was existed
+    if (req.query._method == 'DELETE') {
+      // change the original METHOD
+      // into DELETE method
+      req.method = 'DELETE';
+      // and set requested url
+      req.url = req.path;
+    }
+    next();
+  });
 
 
   /* ~~~~ Setting up routes ~~~~ */

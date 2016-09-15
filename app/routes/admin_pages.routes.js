@@ -1,3 +1,4 @@
+
 module.exports = function(app) {
   var pagesController  = require('../controllers/admin_pages.controller');
 
@@ -8,6 +9,8 @@ module.exports = function(app) {
   app.route('/admin/pages/new')
     .get(pagesController.new)
     .post(pagesController.create);
+
+  app.route('/admin/pages/setHeader')           .post(pagesController.updateHeader);
 
   app.route('/admin/pages/:id')
      .get(pagesController.show)

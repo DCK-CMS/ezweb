@@ -12,8 +12,10 @@
   "dependencies": {
     "bcrypt": "^0.8.7",
     "body-parser": "^1.15.2",
+    "cloudinary": "",
     "compression": "^1.6.2",
     "connect-flash": "^0.1.1",
+    "connect-multiparty": "^2.0.0",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.1",
     "express": "^4.14.0",

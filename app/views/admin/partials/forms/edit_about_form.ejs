@@ -1,40 +1,39 @@
+<form class="form-horizontal" action="/admin/pages/<%=page._id%>?_method=PUT" method="post">
 
-<form class="form-horizontal" action="/admin/pages/new" method="post">
-
-  <input type="hidden" name="template" value="home">
-
+  <input type="hidden" name="template" value="about">
+  
   <div class="form-group form-group-lg">
     <label for="pageTitle" class="col-sm-2 control-label">Title</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="pageTitle" name="title" placeholder="Page Title">
+      <input type="text" class="form-control" id="pageTitle" placeholder="Page Title" name="title" value="<%=page.title%>">
     </div>
   </div>
 
   <div class="form-group">
     <label for="slug" class="col-sm-2 control-label">URL Slug</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="urlSlug" placeholder="URL identifier for this page" name="slug">
+      <input type="text" class="form-control" id="urlSlug" placeholder="URL identifier for this page" name="slug" value="<%=page.slug%>">
     </div>
   </div>
 
   <div class="form-group">
     <label for="carouselTitle" class="col-sm-2 control-label">Carousel title</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="carouselTitle" name="carousel_title" placeholder="Text inside carousel">
+      <input type="text" class="form-control" id="carouselTitle" placeholder="Text inside carousel" name="carousel_title" value="<%=page.carousel_title%>">
     </div>
   </div>
 
   <div class="form-group">
     <label for="carouselImg" class="col-sm-2 control-label">Carousel Image</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="carouselImg" placeholder="Url for carousel image" name="carousel_img">
+      <input type="text" class="form-control" id="carouselImg" placeholder="Url for carousel image" name="carousel_img" value="<%=page.carousel_img%>">
     </div>
   </div>
 
   <div class="form-group">
-    <label for="contentText" class="col-sm-2 control-label">Content text</label>
+    <label for="aboutText" class="col-sm-2 control-label">About text</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="contentText" name="text" placeholder="Text for content title">
+      <input type="text" class="form-control" id="aboutText" placeholder="Text for about section" name="text" value="<%=page.text%>">
     </div>
   </div>
 
@@ -52,7 +51,15 @@
   <!-- Show selected images -->
   <div class="col-sm-10 col-sm-offset-2 selected-img-wrapper">
     <div class="selected-img-container">
-      
+      <a>
+        <img class="select-img" src="http://wallpapercave.com/wp/wc1706220.jpg" />
+        <textarea rows="3" cols="15"></textarea>
+      </a>
+
+      <a>
+        <img class="select-img" src="http://wallpapercave.com/wp/wc1706220.jpg" />
+        <textarea rows="3" cols="15"></textarea>
+      </a>
     </div>
   </div>
 

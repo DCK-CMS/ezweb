@@ -1,0 +1,15 @@
+<% if (message.length > 0) { %>
+  <ul class="alert alert-danger" id="error-msg">
+    <% for(var i = 0; i < message.length; i++){%>
+      <li class="alert-msg"><%= message[i] %></li>
+    <% } %>
+  </ul>
+<% } %>
+
+<% if (successMsg.length > 0) { %>
+  <ul class="alert alert-danger">
+    <% for(var i = 0; i < successMsg.length; i++){%>
+      <li class="alert-msg"><%= successMsg[i] %></li>
+    <% } %>
+  </ul>
+<% } %>

@@ -5,32 +5,43 @@ module.exports =  {
   // Visitor side logic
   getPage: function(req, res, next){
     var pageArr = [];
-
     Page.findOne({"slug": req.params.slug}, function(err, page){
-      var pageData = page;
 
-      if(err) return next(err);
+      if(page){
 
-      Page.find({}, function(err, pages){
+        var pageData = page;
+
         if(err) return next(err);
 
-        for(var i = 0; i < pages.length; i++){
-          var pg = {
-            title: pages[i].title,
-            slug: pages[i].slug
-          };
-          pageArr.push(pg);
-        }
-        Header.find({'type':'css'}, function(err, headerAttr){
+        Page.find({}, function(err, pages){
+          if(err) return next(err);
 
-          Header.find({'type':'text'}, function(err, appName){
-            res.render('templates/'+page.template+'_template', {
-              pageData: page, arr: pageArr, styleArr: headerAttr, logo: appName[0].value});
+          for(var i = 0; i < pages.length; i++){
+            var pg = {
+              title: pages[i].title,
+              slug: pages[i].slug
+            };
+            pageArr.push(pg);
+          }
+          Header.find({'type':'css'}, function(err, headerAttr){
+
+            Header.find({'type':'url'}, function(err, logoUrl){
+              res.render('templates/'+page.template+'_template', {
+                pageData: page, arr: pageArr, styleArr: headerAttr, url: logoUrl});
+            });
+
           });
 
         });
+      } else {
+        console.log('template not found ');
+        return res.render('error_partials/404');
+      }
 
-      });
     });
   },
+
+  getHome: function(req, res) {
+    res.render('404');
+  }
 };

@@ -1,20 +1,40 @@
 var Page = require('mongoose').model('Page');
 var Image = require('mongoose').model('Image');
+var Header = require('mongoose').model('Header');
 
 module.exports = {
   // Admin side logic
   index: function(req, res, next) {
-    res.render('admin/pages/index', {
-      title: "Pages"
+    Page.find({}, function(err, pages) {
+      if (err) return next(err);
+      res.render('admin/pages/index', {
+        title: "Pages",
+        pageArr: pages
+      });
     });
   },
 
   new: function(req, res, next) {
     Image.find({}, function(err, images) {
-      res.render('admin/pages/new', {
-        title: 'Select your template',
-        message: req.flash('error'),
-        imageArr: images
+      Header.find({}, function(err, headerAttr) {
+
+        //retrieve all styles
+        var styleArr = headerAttr.filter(function(data) {
+          return data.type === 'css';
+        });
+        //retrieve logo name
+        var logoUrl = headerAttr.filter(function(data) {
+          return data.type === 'url';
+        });
+
+        res.render('admin/pages/new', {
+          title: 'Select your template',
+          message: req.flash('error'),
+          successMsg: req.flash('success'),
+          imageArr: images,
+          url: logoUrl,
+          styles: styleArr
+        });
       });
     });
   },
@@ -22,60 +42,32 @@ module.exports = {
   create: function(req, res, next) {
     //remove caps and spaces from url
     req.body.slug = req.body.slug.replace(/\s+/g, '-').toLowerCase();
-
+    console.log(req.body);
     var newPage = new Page(req.body);
     newPage.save(function(err) {
       if (err) {
-        for(var key in err.errors){
-          req.flash('error',err.errors[key].message);
+        for (var key in err.errors) {
+          req.flash('error', err.errors[key].message);
         }
-        res.redirect('/admin/pages/new');
       } else {
-        res.json(newPage);
+        req.flash('success', 'Page has been created.');
       }
-
+      res.redirect('/admin/pages/new');
 
     });
   },
-
-
-  // Visitor side logic
-  getPage: function(req, res, next) {
-    var pageArr = [];
-
-    Page.findOne({
-      "slug": req.params.slug
-    }, function(err, page) {
-      var pageData = page;
-
-      if (err) return next(err);
-
-      Page.find({}, function(err, pages) {
-        if (err) return next(err);
-
-        for (var i = 0; i < pages.length; i++) {
-          var pg = {
-            title: pages[i].title,
-            slug: pages[i].slug
-          };
-          pageArr.push(pg);
-        }
-        res.render('templates/' + page.template + '_template', {
-          pageData: page,
-          arr: pageArr
-        });
-      });
-    });
-  },
-
   //admin update
   update: function(req, res, next) {
     Page.findByIdAndUpdate(req.params.id, req.body, function(err, newPage) {
       if (err) return next(err);
-
-      Page.findById(req.params.id, function(err, page) {
-        res.json(page);
+      Page.findById(req.params.id).populate('img').exec(function(err, page) {
+        res.render('admin/pages/show', {
+          title: 'Editing ' + page.title,
+          page: page,
+          imageArr: page.img
+        });
       });
+
     });
   },
   //admin delete
@@ -84,21 +76,51 @@ module.exports = {
       page.remove(function(err) {
         if (err) return next(err);
 
-        res.json(page);
+        res.redirect('/admin/pages');
       });
     });
   },
   //admin show
-  show: function(req, res, next){
-    Page.findById(req.params.id, function(err, page){
-      Image.find({}, function(err, images) {
-        res.render('admin/pages/show', {
-          title: 'Editing <page.title> template',
-          page: page,
-          imageArr: images
-        });
+  show: function(req, res, next) {
+    Page.findById(req.params.id).populate('img').exec(function(err, page) {
+      res.render('admin/pages/show', {
+        title: 'Editing ' + page.title,
+        page: page,
+        imageArr: page.img
       });
-
     });
+  },
+  updateHeader: function(req, res, next) {
+    var reqObj = req.body;
+    for (var item in reqObj) {
+
+      if (item !== 'url') {
+        var attr = item.split('&')[0];
+        var classVal = item.split('&')[1];
+        console.log("these are items: " + item);
+
+        //retrieve header for each of form values and update
+        Header.update({
+          'attribute': attr,
+          'class': classVal
+        }, {
+          value: reqObj[item]
+        }, function(err, headerAttr) {});
+
+      } else {
+        console.log({
+          'attribute': item
+        }, {
+          value: reqObj[item]
+        });
+        Header.update({
+          'attribute': item
+        }, {
+          value: reqObj[item]
+        }, function(err, headerAttr) {});
+      }
+
+    }
+    res.redirect('/admin/pages/new');
   }
 };
