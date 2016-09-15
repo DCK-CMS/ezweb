@@ -2,11 +2,34 @@ var Page = require('mongoose').model('Page');
 var Header = require('mongoose').model('Header');
 
 module.exports =  {
+  // Landing page (root)
+  getRoot: function(req, res, next) {
+    var pageArr = [];
+    Page.find({}, function(err, pages){
+      if(err) return next(err);
+
+      // loop through retreieve page object
+      for (var i = 0; i < pages.length; i++) {
+        var pgObj = {
+          title: pages[i].title,
+          slug: pages[i].slug
+        };
+        pageArr.push(pgObj);
+      }
+
+      res.render('landing_page', {
+        arr: pageArr
+      });
+    });
+  },
+
   // Visitor side logic
   getPage: function(req, res, next){
     var pageArr = [];
+
     Page.findOne({"slug": req.params.slug}, function(err, page){
 
+      if(err) return next(err);
       if(page){
 
         var pageData = page;
@@ -39,9 +62,6 @@ module.exports =  {
       }
 
     });
-  },
-
-  getHome: function(req, res) {
-    res.render('404');
   }
+
 };

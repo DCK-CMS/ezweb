@@ -59,11 +59,11 @@ module.exports = function() {
   app.use(expressLayouts);
   app.use(express.static('public'));
 
-
-  // app.all("/admin/*", isLoggedIn, function(req, res, next) {
-  //   next(); // if the middleware allowed us to get here,
-  //   // just move on to the next route handler
-  // });
+  //routes protection
+  app.all("/admin/*", isLoggedIn, function(req, res, next) {
+    next(); // if the middleware allowed us to get here,
+    // just move on to the next route handler
+  });
 
   app.use(function(req, res, next) {
     // this middleware will call for each requested

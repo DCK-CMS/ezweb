@@ -25,6 +25,13 @@
 	font-weight: 300;
 }
 
+.add-img-container {
+  text-align: center;
+  margin: 15px auto;
+  padding: 15px;
+
+}
+
 /* Grid styling */
 .og-grid {
 	list-style: none;

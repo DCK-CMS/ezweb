@@ -29,7 +29,7 @@
             <%for(var i = 0; i < pageArr.length; i++){%>
               <div class="new-pages-row">
                 <%=pageArr[i].title%>
-                <a class="btn del-btn" data-toggle="modal" data-target="#confirmDel-modal">
+                <a class="btn del-btn" data-toggle="modal" data-target="#confirmDel-modal<%=pageArr[i]._id%>">
                   <i class="fa fa-trash-o fa-fw"></i>
                   Delete
                 </a>
@@ -40,7 +40,7 @@
               </div>
 
             <!-- Confirm deletion Modal -->
-            <div class="modal fade" id="confirmDel-modal" tabindex="-1" role="dialog" aria-labelledby="confirmDelModalLabel">
+            <div class="modal fade" id="confirmDel-modal<%=pageArr[i]._id%>" tabindex="-1" role="dialog" aria-labelledby="confirmDelModalLabel">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <!-- Modal header -->

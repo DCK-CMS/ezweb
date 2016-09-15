@@ -26,7 +26,7 @@ module.exports = {
         var logoUrl = headerAttr.filter(function(data) {
           return data.type === 'url';
         });
-
+        console.log('create',images);
         res.render('admin/pages/new', {
           title: 'Select your template',
           message: req.flash('error'),
@@ -42,7 +42,7 @@ module.exports = {
   create: function(req, res, next) {
     //remove caps and spaces from url
     req.body.slug = req.body.slug.replace(/\s+/g, '-').toLowerCase();
-    console.log(req.body);
+
     var newPage = new Page(req.body);
     newPage.save(function(err) {
       if (err) {
@@ -58,15 +58,17 @@ module.exports = {
   },
   //admin update
   update: function(req, res, next) {
+    var id = req.params.id;
     Page.findByIdAndUpdate(req.params.id, req.body, function(err, newPage) {
       if (err) return next(err);
-      Page.findById(req.params.id).populate('img').exec(function(err, page) {
-        res.render('admin/pages/show', {
-          title: 'Editing ' + page.title,
-          page: page,
-          imageArr: page.img
-        });
-      });
+      res.redirect('/admin/pages/'+id);
+      // Page.findById(req.params.id).populate('img').exec(function(err, page) {
+      //   res.render('admin/pages/show', {
+      //     title: 'Editing ' + page.title,
+      //     page: page,
+      //     imageArr: page.img
+      //   });
+      // });
 
     });
   },
@@ -83,11 +85,14 @@ module.exports = {
   //admin show
   show: function(req, res, next) {
     Page.findById(req.params.id).populate('img').exec(function(err, page) {
+      Image.find({}, function(err, images) {
       res.render('admin/pages/show', {
         title: 'Editing ' + page.title,
         page: page,
-        imageArr: page.img
+        imageArr: images,
+        selectedImgsArr: page.img
       });
+    });
     });
   },
   updateHeader: function(req, res, next) {

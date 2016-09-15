@@ -1,80 +1,83 @@
 <div id="wrapper" class="toggled">
 
-  <!-- Sidebar -->
-  <% include ../partials/sidebar.ejs %>
-  <!-- #sidebar-wrapper -->
+    <!-- Sidebar -->
+    <% include ../partials/sidebar.ejs %>
+        <!-- #sidebar-wrapper -->
 
-  <!-- Page Content -->
-  <div id="page-content-wrapper">
-    <div class="container-fluid page-container">
-      <!-- Header row -->
-      <div class="row admin-header">
-        <div class="col-lg-12">
-          <!-- Header title -->
-          <div class="header-title"><%= title %></div>
-          <!-- Toggle button -->
-          <a href="#menu-toggle" id="menu-toggle" class="btn header-btn">Toggle Sidebar</a>
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid page-container">
+                <!-- Header row -->
+                <div class="row admin-header">
+                    <div class="col-lg-12">
+                        <!-- Header title -->
+                        <div class="header-title">
+                            <%= title %>
+                        </div>
+                        <!-- Toggle button -->
+                        <a href="#menu-toggle" id="menu-toggle" class="btn header-btn">Toggle Sidebar</a>
 
-          <div class="clearfix"></div>
-          <!-- Navbar to select templates -->
-          <nav class="template-tabs">
-            <ul class="nav nav-tabs">
-              <li class="active">
-                <a data-toggle="tab" href="#home-templates" class="home-tab tab-btn">Home</a>
-              </li>
-              <li>
-                <a data-toggle="tab" href="#about-templates" class="about-tab tab-btn">About</a>
-              </li>
-              <li>
-                <a data-toggle="tab" href="#contact-templates" class="contact-tab tab-btn">Contact</a>
-              </li>
-              <li>
-                <a data-toggle="tab" href="#header-templates" class="header-tab tab-btn">Header</a>
-              </li>
-              <li>
-                <a data-toggle="tab" href="#footer-templates" class="footer-tab tab-btn">Footer</a>
-              </li>
-            </ul>
-          </nav>
+                        <div class="clearfix"></div>
+                        <!-- Navbar to select templates -->
+                        <nav class="template-tabs">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#home-templates" class="home-tab tab-btn">Home</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#about-templates" class="about-tab tab-btn">About</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#contact-templates" class="contact-tab tab-btn">Contact</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#header-templates" class="header-tab tab-btn">Header</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#footer-templates" class="footer-tab tab-btn">Footer</a>
+                                </li>
+                            </ul>
+                        </nav>
 
+                    </div>
+                </div>
+
+                <!-- Content body row -->
+                <div class="row pages-contentbody-container">
+                    <div class="col-lg-12">
+                        <!-- Select image modal -->
+                        <% include ../partials/modals/chooseImg_modal.ejs %>
+                            <!-- Flash messages -->
+                            <% include ../../error_partials/flash_messages.ejs %>
+
+                                <!-- Container for each tabs -->
+                                <div class="tab-content">
+                                    <div id="home-templates" class="tab-pane fade in active">
+                                        <!-- Home template form -->
+                                        <% include ../partials/forms/home_form.ejs %>
+                                    </div>
+                                    <div id="about-templates" class="tab-pane fade">
+                                        <!-- About template form -->
+                                        <% include ../partials/forms/about_form.ejs %>
+                                    </div>
+                                    <div id="contact-templates" class="tab-pane fade">
+                                        <!-- Contact template form -->
+                                        <% include ../partials/forms/contact_form.ejs %>
+                                    </div>
+                                    <div id="header-templates" class="tab-pane fade">
+                                        <!-- Header template form -->
+                                        <% include ../partials/forms/header_form.ejs %>
+                                    </div>
+                                    <div id="footer-templates" class="tab-pane fade">
+                                        <!-- Footer template form -->
+                                        <% include ../partials/forms/footer_form.ejs %>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
-
-      <!-- Content body row -->
-      <div class="row pages-contentbody-container">
-        <div class="col-lg-12">
-          <!-- Select image modal -->
-          <% include ../partials/modals/chooseImg_modal.ejs %>
-          <!-- Flash messages -->
-          <% include ../../error_partials/flash_messages.ejs %>
-
-          <!-- Container for each tabs -->
-          <div class="tab-content">
-            <div id="home-templates" class="tab-pane fade in active">
-              <!-- Home template form -->
-              <% include ../partials/forms/home_form.ejs %>
-            </div>
-            <div id="about-templates" class="tab-pane fade">
-              <!-- About template form -->
-              <% include ../partials/forms/about_form.ejs %>
-            </div>
-            <div id="contact-templates" class="tab-pane fade">
-              <!-- Contact template form -->
-              <% include ../partials/forms/contact_form.ejs %>
-            </div>
-            <div id="header-templates" class="tab-pane fade">
-              <!-- Header template form -->
-              <% include ../partials/forms/header_form.ejs %>
-            </div>
-            <div id="footer-templates" class="tab-pane fade">
-              <!-- Footer template form -->
-              <% include ../partials/forms/footer_form.ejs %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- /#page-content-wrapper -->
+        <!-- /#page-content-wrapper -->
 </div>
 <!-- /#wrapper -->
