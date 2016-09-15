@@ -27,8 +27,16 @@
           <% include ../partials/modals/chooseImg_modal.ejs %>
           <!-- Selected template form -->
           <!-- this part should render the selected form to edit -->
-          <% include ../partials/forms/home_form.ejs %>
-
+          <%if(page.template === 'home'){%>
+            <% include ../partials/forms/edit_home_form.ejs
+            %>
+          <%}else if(page.template === 'about'){%>
+            <% include ../partials/forms/edit_about_form.ejs
+            %>
+          <%}else{%>
+            <% include ../partials/forms/edit_contact_form.ejs
+            %>
+          <%}%>
         </div>
       </div>
     </div>

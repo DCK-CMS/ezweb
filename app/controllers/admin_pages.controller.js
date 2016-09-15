@@ -5,8 +5,12 @@ var Header = require('mongoose').model('Header');
 module.exports = {
   // Admin side logic
   index: function(req, res, next) {
-    res.render('admin/pages/index', {
-      title: "Pages"
+    Page.find({},function(err, pages){
+      if(err) return next(err);
+      res.render('admin/pages/index', {
+        title: "Pages",
+        pageArr: pages
+      });
     });
   },
 
@@ -23,10 +27,10 @@ module.exports = {
           return data.type === 'url';
         });
 
-        console.log(logoUrl);
         res.render('admin/pages/new', {
           title: 'Select your template',
           message: req.flash('error'),
+          successMsg: req.flash('success'),
           imageArr: images,
           url: logoUrl,
           styles: styleArr
@@ -46,10 +50,10 @@ module.exports = {
         for(var key in err.errors){
           req.flash('error',err.errors[key].message);
         }
-        res.redirect('/admin/pages/new');
-      } else {
-        res.json(newPage);
+      }else{
+        req.flash('success','Page has been created.');
       }
+      res.redirect('/admin/pages/new');
 
 
     });
@@ -59,8 +63,15 @@ module.exports = {
     Page.findByIdAndUpdate(req.params.id, req.body, function(err, newPage) {
       if (err) return next(err);
 
-      Page.findById(req.params.id, function(err, page) {
-        res.json(page);
+      Page.findById(req.params.id, function(err, page){
+
+        Image.find({}, function(err, images) {
+          res.render('admin/pages/show', {
+            title: 'Editing '+page.title,
+            page: page,
+            imageArr: images
+          });
+        });
       });
     });
   },
@@ -77,9 +88,10 @@ module.exports = {
   //admin show
   show: function(req, res, next){
     Page.findById(req.params.id, function(err, page){
+
       Image.find({}, function(err, images) {
         res.render('admin/pages/show', {
-          title: 'Editing <page.title> template',
+          title: 'Editing '+page.title,
           page: page,
           imageArr: images
         });
