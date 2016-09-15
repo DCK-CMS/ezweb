@@ -57,7 +57,7 @@ module.exports = function() {
   app.set('views', './app/views');
   app.set('view engine', 'ejs');
   app.use(expressLayouts);
-  app.use(express.static('public'));
+  app.use(express.static('./public'));
 
   //routes protection
   app.all("/admin/*", isLoggedIn, function(req, res, next) {
