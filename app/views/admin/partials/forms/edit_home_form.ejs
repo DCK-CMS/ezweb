@@ -52,7 +52,12 @@
   <!-- Show selected images -->
   <div class="col-sm-10 col-sm-offset-2 selected-img-wrapper">
     <div class="selected-img-container">
-  
+      <%if (selectedImgsArr.length >0) {%>
+        <%for (var n = 0; n < selectedImgsArr.length; n++){%>
+          <a><img class='select-img' src=" <%=selectedImgsArr[n].img_url%> "/><input type='hidden' name='img' value="<%=selectedImgsArr[n]._id%>"></a>
+        <%}%>
+      <%}%>
+
     </div>
   </div>
 
