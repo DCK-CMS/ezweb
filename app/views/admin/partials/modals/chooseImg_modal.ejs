@@ -14,7 +14,8 @@
           <%for (var i = 0; i < imageArr.length; i++){%>
             <li class="img-item">
               <div class="selected-tick"></div>
-              <img class="select-img" src="<%=imageArr[i].img_url%>" data-image='{"id":"<%=imageArr[i]._id%>","url":"<%=imageArr[i].img_url%>"}'/>
+
+              <img class="select-img" src="<%=imageArr[i].img_url%>" data-image='{"id":"<%=imageArr[i]._id%>","url":"<%=imageArr[i].img_url%>","name":"<%=imageArr[i].name %>"}'/>
             </li>
           <%}%>
         </ul><!-- end of uploaded images grid -->
