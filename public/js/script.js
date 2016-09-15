@@ -35,7 +35,7 @@ $(function() {
   $(".chooseImg-btn").click(function(e) {
     e.preventDefault();
     for (var n = 0; n < ImgsArr.length; n++) {
-      var html = "<a><img class='select-img' src='" + ImgsArr[n].url + "' /><textarea rows='3'cols='15' name='description'></textarea><input type='hidden' name='img' value='" + ImgsArr[n].id + "'></a>";
+      var html = "<a><img class='select-img' src='" + ImgsArr[n].url + "' /><input type='hidden' name='img' value='" + ImgsArr[n].id + "'></a>";
       $('.selected-img-container').prepend(html);
     }
 

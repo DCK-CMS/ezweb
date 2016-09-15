@@ -22,7 +22,7 @@ module.exports = {
   create: function(req, res, next) {
     //remove caps and spaces from url
     req.body.slug = req.body.slug.replace(/\s+/g, '-').toLowerCase();
-
+    console.log(req.body);
     var newPage = new Page(req.body);
     newPage.save(function(err) {
       if (err) {
@@ -33,7 +33,6 @@ module.exports = {
       } else {
         res.json(newPage);
       }
-
 
     });
   },
