@@ -19,6 +19,7 @@ $(function(){
 
     // get the selected image id
     imageId = $(this).children('.select-img').data('id');
+    console.log(imageId);
     // if array does not contain imageId
     if(selectedImgsArr.indexOf(imageId) === -1 ) {
       selectedImgsArr.push(imageId);
@@ -32,7 +33,11 @@ $(function(){
   /* ---- Images selected submit ---- */
   $(".chooseImg-btn").click(function(e) {
     e.preventDefault();
-    console.log('save');
+    for(var n = 0; n < selectedImgsArr.length; n++){
+      var html =
+      $('.selected-img-container').prepend(html);
+    }
+
   });
 
   //url shortener
