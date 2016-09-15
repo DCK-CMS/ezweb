@@ -39,7 +39,8 @@ module.exports = function() {
     extended: false
   })); // get information from html
   app.use(bodyParser.json());
-  app.use(methodOverride());
+  // app.use(methodOverride('X-HTTP-Method-Override'));
+  app.use(methodOverride('_method'));
 
   // required for passport
   app.use(cookieParser());

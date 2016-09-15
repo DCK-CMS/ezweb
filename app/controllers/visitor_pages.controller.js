@@ -23,9 +23,9 @@ module.exports =  {
         }
         Header.find({'type':'css'}, function(err, headerAttr){
 
-          Header.find({'type':'text'}, function(err, appName){
+          Header.find({'type':'url'}, function(err, logoUrl){
             res.render('templates/'+page.template+'_template', {
-              pageData: page, arr: pageArr, styleArr: headerAttr, logo: appName[0].value});
+              pageData: page, arr: pageArr, styleArr: headerAttr, url: logoUrl});
           });
 
         });
@@ -33,4 +33,8 @@ module.exports =  {
       });
     });
   },
+
+  getHome: function(req, res) {
+    res.render('templates/home_test');
+  }
 };
