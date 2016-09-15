@@ -1,5 +1,6 @@
 var Page = require('mongoose').model('Page');
 var Image = require('mongoose').model('Image');
+var Header = require('mongoose').model('Header');
 
 module.exports = {
   // Admin side logic
@@ -11,10 +12,26 @@ module.exports = {
 
   new: function(req, res, next) {
     Image.find({}, function(err, images) {
-      res.render('admin/pages/new', {
-        title: 'Select your template',
-        message: req.flash('error'),
-        imageArr: images
+      Header.find({}, function(err, headerAttr){
+
+        //retrieve all styles
+        var styleArr = headerAttr.filter(function(data){
+          return data.type === 'css';
+        });
+        //retrieve logo name
+        var logoUrl = headerAttr.filter(function(data){
+          return data.type === 'url';
+        });
+
+        console.log(logoUrl);
+        res.render('admin/pages/new', {
+          title: 'Select your template',
+          message: req.flash('error'),
+          imageArr: images,
+          url: logoUrl,
+          styles: styleArr
+        });
+
       });
     });
   },
@@ -37,37 +54,6 @@ module.exports = {
 
     });
   },
-
-
-  // Visitor side logic
-  getPage: function(req, res, next) {
-    var pageArr = [];
-
-    Page.findOne({
-      "slug": req.params.slug
-    }, function(err, page) {
-      var pageData = page;
-
-      if (err) return next(err);
-
-      Page.find({}, function(err, pages) {
-        if (err) return next(err);
-
-        for (var i = 0; i < pages.length; i++) {
-          var pg = {
-            title: pages[i].title,
-            slug: pages[i].slug
-          };
-          pageArr.push(pg);
-        }
-        res.render('templates/' + page.template + '_template', {
-          pageData: page,
-          arr: pageArr
-        });
-      });
-    });
-  },
-
   //admin update
   update: function(req, res, next) {
     Page.findByIdAndUpdate(req.params.id, req.body, function(err, newPage) {
@@ -100,5 +86,25 @@ module.exports = {
       });
 
     });
+  },
+  updateHeader: function(req, res, next){
+    var reqObj = req.body;
+    for(var item in reqObj){
+
+      if(item !== 'url'){
+        var attr = item.split('&')[0];
+        var classVal = item.split('&')[1];
+        console.log("these are items: " + item);
+
+        //retrieve header for each of form values and update
+         Header.update({'attribute': attr, 'class': classVal}, {value: reqObj[item]}, function(err, headerAttr){});
+
+      } else {
+        console.log({'attribute':item},{value:reqObj[item]});
+        Header.update({'attribute':item},{value:reqObj[item]}, function(err, headerAttr){});
+      }
+
+    }
+    res.redirect('/admin/pages/new');
   }
 };
