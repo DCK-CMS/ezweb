@@ -29,10 +29,6 @@ module.exports =  {
 
     Page.findOne({"slug": req.params.slug}, function(err, page){
 
-      var pageData = page;
-      console.log("page: " + page);
-      if(err) return next(err);
-
       if(page){
 
         var pageData = page;
