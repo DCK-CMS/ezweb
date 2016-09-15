@@ -1,12 +1,12 @@
 var Page = require('mongoose').model('Page');
 var Header = require('mongoose').model('Header');
 
-module.exports =  {
+module.exports = {
   // Landing page (root)
   getRoot: function(req, res, next) {
     var pageArr = [];
-    Page.find({}, function(err, pages){
-      if(err) return next(err);
+    Page.find({}, function(err, pages) {
+      if (err) return next(err);
 
       // loop through retreieve page object
       for (var i = 0; i < pages.length; i++) {
@@ -24,33 +24,44 @@ module.exports =  {
   },
 
   // Visitor side logic
-  getPage: function(req, res, next){
+  getPage: function(req, res, next) {
     var pageArr = [];
 
-    Page.findOne({"slug": req.params.slug}, function(err, page){
-
-      if(err) return next(err);
-      if(page){
+    Page.findOne({
+      "slug": req.params.slug
+    }).populate('img').exec(function(err, page) {
+console.log('frontend',page);
+      if (err) return next(err);
+      if (page) {
 
         var pageData = page;
 
-        if(err) return next(err);
+        if (err) return next(err);
 
-        Page.find({}, function(err, pages){
-          if(err) return next(err);
+        Page.find({}, function(err, pages) {
+          if (err) return next(err);
 
-          for(var i = 0; i < pages.length; i++){
+          for (var i = 0; i < pages.length; i++) {
             var pg = {
               title: pages[i].title,
               slug: pages[i].slug
             };
             pageArr.push(pg);
           }
-          Header.find({'type':'css'}, function(err, headerAttr){
+          Header.find({
+            'type': 'css'
+          }, function(err, headerAttr) {
 
-            Header.find({'type':'url'}, function(err, logoUrl){
-              res.render('templates/'+page.template+'_template', {
-                pageData: page, arr: pageArr, styleArr: headerAttr, url: logoUrl});
+            Header.find({
+              'type': 'url'
+            }, function(err, logoUrl) {
+              res.render('templates/' + page.template + '_template', {
+                pageData: page,
+                arr: pageArr,
+                styleArr: headerAttr,
+                url: logoUrl,
+                allImgs: page.img
+              });
             });
 
           });

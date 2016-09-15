@@ -13,21 +13,16 @@
   <ul id="og-grid" class="og-grid">
     <!-- Each li stores 1 thumbnail -->
     <!-- All data-" " = elements inside expanded view -->
-  	<li>
-  		<a data-largesrc="http://trunkweed.com/uploads/posts/images/428960-love-couples-wallpapers-hd-for-desktop.jpg" data-title="Love birds" data-description="She loved the sea. She liked the sharp salty smell of the air, and the vastness of the horizons bounded only by a vault of azure sky above. It made her feel small, but free as well.">
-  			<img src="http://3.bp.blogspot.com/-xtVjHMIjFSA/TsTXZS8rBOI/AAAAAAAABHs/Z2rlIeJbqBw/s250-c/Love-Couple-desktop-Wallpapers-HD-photo-images-1.jpg" alt="img01"/>
-  		</a>
-  	</li>
-  	<li>
-  		<a data-largesrc="http://www.planwallpaper.com/static/images/6768666-1080p-wallpapers.jpg" data-title="Bolley sunt bona vobis" data-description="Komatsuna prairie turnip wattle seed artichoke mustard horseradish taro rutabaga ricebean carrot black-eyed pea turnip greens beetroot yarrow watercress kombu.">
-  			<img src="http://www.planwallpaper.com/static/images/6768666-1080p-wallpapers.jpg" alt="img02"/>
-  		</a>
-  	</li>
-  	<li>
-  		<a data-largesrc="https://lovelace-media.imgix.net/uploads/141/f8cfbe10-eedf-0132-f0cf-0ed54733f8f5.jpg" data-title="The Night King" data-description="Bitter cold biting chilling crackling drenched foggy frosty glacial ice icy kissed lonely jingling melty misty nippy numb snowy thaw wet WINTER IS COMING.">
-  			<img src="https://lovelace-media.imgix.net/uploads/141/f8cfbe10-eedf-0132-f0cf-0ed54733f8f5.jpg" alt="img03"/>
-  		</a>
-  	</li>
+    <% if(allImgs.length>0){%>
+      <% for(var i=0;i<allImgs.length;i++){%>
+      <li>
+    		<a data-largesrc="<%=allImgs[i].img_url%>" data-title="Love birds" data-description="She loved the sea. She liked the sharp salty smell of the air, and the vastness of the horizons bounded only by a vault of azure sky above. It made her feel small, but free as well.">
+    			<img src="<%=allImgs[i].img_url%>" alt="img01"/>
+    		</a>
+    	</li>
+    	
+    <%}%>
+<%}%>
   </ul>
 
   <!-- add image link -->
