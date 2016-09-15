@@ -7,27 +7,34 @@
 <div class="main">
   <!-- Title -->
   <div class="main-header">
-    <h3><%= pageData.title %><span>with grid images</span></h3>
+    <h3><%= pageData.title %><span><%= pageData.text %></span></h3>
   </div>
   <!-- Thumbnail images grid -->
   <ul id="og-grid" class="og-grid">
     <!-- Each li stores 1 thumbnail -->
     <!-- All data-" " = elements inside expanded view -->
   	<li>
-  		<a data-largesrc="http://trunkweed.com/uploads/posts/images/428960-love-couples-wallpapers-hd-for-desktop.jpg" data-title="Azuki bean" data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
+  		<a data-largesrc="http://trunkweed.com/uploads/posts/images/428960-love-couples-wallpapers-hd-for-desktop.jpg" data-title="Love birds" data-description="She loved the sea. She liked the sharp salty smell of the air, and the vastness of the horizons bounded only by a vault of azure sky above. It made her feel small, but free as well.">
   			<img src="http://3.bp.blogspot.com/-xtVjHMIjFSA/TsTXZS8rBOI/AAAAAAAABHs/Z2rlIeJbqBw/s250-c/Love-Couple-desktop-Wallpapers-HD-photo-images-1.jpg" alt="img01"/>
   		</a>
   	</li>
   	<li>
-  		<a data-largesrc="http://www.planwallpaper.com/static/images/6768666-1080p-wallpapers.jpg" data-title="Veggies sunt bona vobis" data-description="Komatsuna prairie turnip wattle seed artichoke mustard horseradish taro rutabaga ricebean carrot black-eyed pea turnip greens beetroot yarrow watercress kombu.">
+  		<a data-largesrc="http://www.planwallpaper.com/static/images/6768666-1080p-wallpapers.jpg" data-title="Bolley sunt bona vobis" data-description="Komatsuna prairie turnip wattle seed artichoke mustard horseradish taro rutabaga ricebean carrot black-eyed pea turnip greens beetroot yarrow watercress kombu.">
   			<img src="http://www.planwallpaper.com/static/images/6768666-1080p-wallpapers.jpg" alt="img02"/>
   		</a>
   	</li>
   	<li>
-  		<a data-largesrc="https://lovelace-media.imgix.net/uploads/141/f8cfbe10-eedf-0132-f0cf-0ed54733f8f5.jpg" data-title="Dandelion horseradish" data-description="Cabbage bamboo shoot broccoli rabe chickpea chard sea lettuce lettuce ricebean artichoke earthnut pea aubergine okra brussels sprout avocado tomato.">
-  			<img src="http://vignette1.wikia.nocookie.net/gameofthrones/images/f/fe/Whitewalker2.jpg/revision/latest?cb=20140603195101" alt="img03"/>
+  		<a data-largesrc="https://lovelace-media.imgix.net/uploads/141/f8cfbe10-eedf-0132-f0cf-0ed54733f8f5.jpg" data-title="The Night King" data-description="Bitter cold biting chilling crackling drenched foggy frosty glacial ice icy kissed lonely jingling melty misty nippy numb snowy thaw wet WINTER IS COMING.">
+  			<img src="https://lovelace-media.imgix.net/uploads/141/f8cfbe10-eedf-0132-f0cf-0ed54733f8f5.jpg" alt="img03"/>
   		</a>
   	</li>
   </ul>
+
+  <!-- add image link -->
+  <div class="add-img-container">
+    <a class="btn save-btn" href="/admin/pages/<%= pageData.id %>">
+      <i class="fa fa-plus fa-fw"></i>add more images
+    </a>
+  </div>
 
 </div>

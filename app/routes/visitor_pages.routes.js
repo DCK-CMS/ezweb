@@ -4,6 +4,6 @@ module.exports = function(app) {
   // site visitor routes
   app.get('/views/:slug', pagesController.getPage);
 
-  // dummy route for templating
-  app.get('/home', pagesController.getHome);
+  // root route
+  app.get('/', pagesController.getRoot);
 };
