@@ -40,6 +40,15 @@ $(function(){
 
   });
 
+  /* ---- Toggling tab and flash messages ---- */
+  $(".tab-btn").on('click', function(e){
+    if(!($(this).parent().hasClass('active'))) {
+      $("#error-msg").hide();
+    }
+
+  });
+
+
   //url shortener
   $("#homeForm").submit(function(e){
     e.preventDefault();

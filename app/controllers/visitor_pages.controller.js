@@ -35,7 +35,7 @@ module.exports =  {
         });
       } else {
         console.log('template not found ');
-        return res.render('404');
+        return res.render('error_partials/404');
       }
 
     });

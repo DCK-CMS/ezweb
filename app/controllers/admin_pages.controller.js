@@ -35,7 +35,6 @@ module.exports = {
           url: logoUrl,
           styles: styleArr
         });
-
       });
     });
   },
