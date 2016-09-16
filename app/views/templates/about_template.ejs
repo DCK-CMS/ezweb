@@ -14,13 +14,13 @@
       <!-- Description -->
       <div class="about-section-desc">
         <p> <%= pageData.text %> </p>
-        <p>Text hereext hereext hereext hereext hereext hereext hereext hereext hereext hereext hereext hereext hereext hereext hereext hereext here</p>
       </div>
     </div>
 
+    <%if(pageData.img.length > 0 ){%>
     <div class="col-md-5 about-img-col">
-      <img src="<%= pageData.imgUrl %>" alt="" />
+      <img src="<%= pageData.img[0].img_url %>" alt="" />
     </div>
-
+    <%}%>
   </div>
 </div>
