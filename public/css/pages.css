@@ -1,9 +1,9 @@
 .page-container {
-  margin-right: 250px;
+  /*margin-right: 250px;*/
 }
 
 .page-container.toggled {
-  margin-right: 0px;
+  margin-right: 250px;
 }
 
 /* Header */
