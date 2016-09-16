@@ -47,7 +47,7 @@
                 <!-- Edit & delete button -->
                 <div class="edit-del">
                   <!-- delete button -->
-                  <a class="btn del-btn" data-toggle="modal" data-target="#confirmDel-modal">
+                  <a class="btn del-btn" data-toggle="modal" data-target="#confirmDel-modal<%=imageArr[i]._id%>">
                     <i class="fa fa-trash-o fa-fw"></i>
                     Delete
                   </a>
@@ -59,10 +59,10 @@
                 </div>
               </li>
 
-          </ul>
+
           <!-- end of uploaded images grid -->
           <!-- Confirm deletion Modal -->
-          <div class="modal fade" id="confirmDel-modal" tabindex="-1" role="dialog" aria-labelledby="confirmDelModalLabel">
+          <div class="modal fade" id="confirmDel-modal<%=imageArr[i]._id%>" tabindex="-1" role="dialog" aria-labelledby="confirmDelModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <!-- Modal header -->
@@ -86,7 +86,7 @@
             </div>
           </div>
         <%}%>
-
+</ul>
         </div>
       </div>
     </div>
