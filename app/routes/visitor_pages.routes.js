@@ -6,4 +6,7 @@ module.exports = function(app) {
 
   // root route
   app.get('/', pagesController.getRoot);
+
+  // thank you route
+  app.get('/thankyou', pagesController.getThankyou);
 };

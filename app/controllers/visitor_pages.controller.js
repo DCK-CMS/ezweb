@@ -73,6 +73,10 @@ console.log('frontend',page);
       }
 
     });
+  },
+
+  getThankyou: function(req, res, next) {
+    res.render('thankyou_page');
   }
 
 };
