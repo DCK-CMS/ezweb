@@ -47,28 +47,28 @@
                 <!-- Edit & delete button -->
                 <div class="edit-del">
                   <!-- delete button -->
-                  <a class="btn del-btn" data-toggle="modal" data-target="#confirmDel-modal">
+                  <a class="btn del-btn" data-toggle="modal" data-target="#confirmDel-modal<%=imageArr[i]._id%>">
                     <i class="fa fa-trash-o fa-fw"></i>
                     Delete
                   </a>
                   <!-- href link to edit image -->
-                  <a href="/admin/pages/:imageid/edit" class="btn edit-btn">
+                  <!-- <a href="/admin/pages/<%#=imageArr[i]._id%>" class="btn edit-btn">
                     <i class="fa fa-pencil-square-o fa-fw"></i>
                     Edit
-                  </a>
+                  </a> -->
                 </div>
               </li>
 
-          </ul>
+
           <!-- end of uploaded images grid -->
           <!-- Confirm deletion Modal -->
-          <div class="modal fade" id="confirmDel-modal" tabindex="-1" role="dialog" aria-labelledby="confirmDelModalLabel">
+          <div class="modal fade" id="confirmDel-modal<%=imageArr[i]._id%>" tabindex="-1" role="dialog" aria-labelledby="confirmDelModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <!-- Modal header -->
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title text-center" id="confirmDelModalLabel">Are you sure?</h4>
+                  <h4 class="modal-title text-center" id="confirmDelModalLabel<%=imageArr[i]._id%>">Are you sure?</h4>
                 </div>
 
                 <!-- Modal footer -->
@@ -86,7 +86,7 @@
             </div>
           </div>
         <%}%>
-
+        </ul>
         </div>
       </div>
     </div>
